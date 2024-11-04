@@ -6,7 +6,7 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{MP}						  % Import stylu maturitní práce
 \author{Kryštof Maxera}                  % AUTOR PRÁCE
-\title{Jak psát práci v \LaTeX{}u}    % NÁZEV PRÁCE
+\title{Konstrukce dronu}    % NÁZEV PRÁCE
 \date{14. února 2025}                 % DATUM ODEVZDÁNÍ PRÁCE
 \vedouci{Dr.rer.nat Michal Kočer} % VEDOUCÍ PRÁCE
 \place{V Českých Budějovicích}
@@ -42,11 +42,11 @@
 \lipsum[1]	
 	
 %%%%%%%%%%%%%% TEORETICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
-\part{Teoretická část}  % název teoretické části (nenechávejte Teoretická část)
+\part{Úvod do světa dronů}  % název teoretické části (nenechávejte Teoretická část)
 	
-\chapter{Název úvodní kapitoly}
+\chapter{Co to je dron?}
 			
-\section{O-notace}
+\section{Druhy dronů}
 	Odkaz v závorkách: \parencite[see][page 900]{einstein}\\
 	Odkaz: \cite{knuthwebsite}\\
 	A odkaz pod čarou: \footcite[see][s. 42]{latexcompanion}\\
@@ -66,7 +66,7 @@
 
 \lipsum[2]
 
-\section[X-krát Abeceda]{Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda Abeceda }
+\chapter[Stručná historie dronů]{Stručná historie dronů}
 %%% v obsahu se objeví jen to co je v hranatých závorkách
 \begin{figure}
   \includegraphics[width=\linewidth]{test.jpg}
@@ -78,10 +78,35 @@ Tabulka \ref{tab:test2} ukazuje hádejte, co.
 	
 \lipsum[3]
 
-%%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
-\part{Praktická část} % název praktické části (nenechávejte název Praktická část)
+\chapter{Anatomie dronu}
+			
+\section{Motory}
 
-\section{Výpisy použitých programů}
+\lipsum[1]
+
+\section{ESP}
+
+\lipsum[2]
+
+\section{Baterie}
+
+\lipsum[3]
+
+\section{Raspberry Pi Pico}
+
+\lipsum[4]
+
+\chapter{Fyzika letu dronu}
+
+\lipsum[1]
+
+%%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
+\part{Konstrukce kvadrokoptéry} % název praktické části (nenechávejte název Praktická část)
+
+\chapter{Součástky}
+\lipsum[1]	
+
+\chapter{Průběh Konstrukce}
 
 \lipsum[1]	
 
@@ -112,6 +137,14 @@ int main(void) {
 Soucet: 52.4415
 \end{lstlisting}
 
+\chapter{Program}
+
+\lipsum[1]
+
+\chapter{Schéma zapojení}
+
+\lipsum[1]
+
 %%%%%%%%%%%%% ZÁVĚR
 \chapter*{Závěr}
 	
@@ -126,13 +159,13 @@ Soucet: 52.4415
 
 %%%%%%%%%%%%% PŘÍLOHY - APPENDIX 	
 \begin{appendices}
-	\chapter{Fotky z pokusů}	
+	\chapter{Fotografie zkonstruované kvadrokoptéry}	
 	\lipsum[1]
     	%\pitem{Fotky z pokusů}
     	%\eitem{Vlastní program}
     	%\eitem{Dokumentace}
     	%\eitem{Testovací data}
-	\chapter{Příloha další }
+	\chapter{Kód programu Raspberry Pi Pico}  
 \end{appendices}
 %%%%%%%%%%%%%%%
 \end{document}
