@@ -63,7 +63,7 @@ Drony lze obecně rozdělit do několika hlavních skupin na základě prostřed
 	\item \textbf{Bezpilotní kosmické lodě} (Uncrewed spacecraft)
 \end{itemize}
 
-V této práci se zaměřujeme na konstrukci kvadrokoptéry, která spadá do kategorie bezpilotních letadel. Jelikož se zaměřuje pouze na tuto část dronů, rozebereme si ji podrobněji. \cite{mainbook}\\
+Přestože označení dron lze použít pro širokou škálu zařízeních, pro širokou veřejnost je toto slovo primárně spjaté s dálkově ovládanými bezpilotními letadly. Samo o sobě však toto označení není chybné. V této práci se zaměřujeme na konstrukci kvadrokoptéry, která spadá do kategorie bezpilotních letadel. O té práce pojednává podrobněji. \cite{mainbook}
 
 \section{Bezpilotní letadla}
 
@@ -114,12 +114,34 @@ Vesmír představuje ideální prostředí pro využití dronů, neboť je pro l
 
 Využití všech těchto typů dronů má společnou vlastnost. Jejich využití je na místech, kde lze pracovní sílu člověka nahradit automatickým zařízením nebo místech, které jsou příliš riskantní pro přítomnost člověka. Jejich nasazení se neustále rozšiřuje a lze bez pochybností předpokládat, že v budoucnu bude jejich význam dále narůstat.
 
-\chapter{Anatomie dronu}
+\chapter[Anatomie multikoptéry]{Anatomie multikoptéry}
+Každá multikoptéra, ať už profesionálně vyrobená nebo sestavená v domácích podmínkách, se liší svým konstrukčním hardwarem. Nicméně většinu těchto zařízení spojuje použití podobných klíčových komponent. Tato kapitola se zaměřuje na podrobný popis nejběžnějších součástek, které byly využity při konstrukci kvadrokoptéry v praktické části práce.
 
-\section{Vrtule}
-\lipsum[1]
+\section{Rám}
+Rám dronu tvoří základní konstrukční prvek, který drží všechny komponenty pohromadě. Typ rámu použitý u dronu má zásadní vliv na jeho celkové vlastnosti. Klíčovým aspektem při výběru a návrhu rámu je nalezení optimálního poměru mezi hmotností, velikostí a pevností, aby konstrukce byla co nejvíce odolná vůči nárazům a pádům, zároveň však nezvyšovala zbytečně hmotnost zařízení. Tento vyvážený design hraje významnou roli ve stabilitě, ovladatelnosti a životnosti dronu.
+
+\subsection{Tvar}
+První klíčovou vlastností rámu, na kterou je třeba se zaměřit, je jeho tvar. Konstrukce rámu musí odpovídat počtu vrtulí, což vyžaduje adekvátní počet ramen. Například trikoptéry disponují třemi rameny, hexakoptéry šesti, zatímco nejběžnější kvadrokoptéry mají čtyři ramena.Důležitým konstrukčním aspektem je také úhel mezi jednotlivými rameny, který ovlivňuje nejen stabilitu a letové vlastnosti dronu, ale také případné zorné pole připevněné kamery.
+
+\subsection{Materiál}
+Výběr materiálu rámu výrazně ovlivňuje dvě klíčové vlastnosti dronu: hmotnost a odolnost. Existuje široká škála materiálů vhodných pro konstrukci rámu. Základním kritériem je dostatečná pevnost materiálu, která umožňuje jeho použití jako nosné struktury. Některé materiály poskytují výrazné výhody, díky nimž jsou preferovány.\\
+
+Nejčastěji používané materiály zahrnují:
+\begin{itemize}
+	\item Uhlíkové vlákno - vynikající pevnost a nízká hmotnost, vysoká cena, pro profesionální konstrukce
+	\item Dřevo - snadná dostupnost, výborná tvarovatelnost, vhodné pro malé multikoptéry
+	\item Hliník - vysoká pevnost a odolnost, nízká cena, vysoká hmotnost
+	\item Pěna - převážně u malých dronů díky své nízké hmotnosti, omezená stabilita
+	\item Plast - levný, lehký a snadno tvarovatelný materiál, možné použití 3D tisku
+\end{itemize}
+
+\subsection{Velikost}
+V neposlední řadě je potřeba zvolit správnou velikost dronu.  Obecně platí, že s rostoucí velikostí dronu se zvyšuje jeho hmotnost, ale zároveň i stabilita. Volba optimální velikosti závisí na požadovaných letových vlastnostech a plánovaném zatížení dronu.
 
 \section{Motory}
+\lipsum[1]
+
+\section{Vrtule}
 
 \lipsum[1]
 
@@ -132,9 +154,12 @@ Využití všech těchto typů dronů má společnou vlastnost. Jejich využití
 
 \section{Raspberry Pi Pico}
 
-\section{Airframe}
 
 \section{Baterie}
+
+\section{Airframe}
+
+
 \lipsum[3]
 
 \chapter{Fyzika letu dronu}
