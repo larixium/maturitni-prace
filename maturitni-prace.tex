@@ -45,19 +45,67 @@
 \part{Úvod do světa dronů}  % název teoretické části (nenechávejte Teoretická část)
 	
 \chapter{Definice a charakteristika dronů}
-			
-Dron je definován jako zařízení nebo stroj schopný vykonávat úkoly bez nutnosti přímé fyzické přítomnosti člověka. Tato zařízení lze rozdělit do dvou základních kategorií. \\
-\\První kategorii tvoří plně autonomní roboti, u jichž je přítomnost člověka vyžadována primárně z kontrolních a bezpečnostních důvodu. Pilot nebo operátor zde většinou nezasahuje do aktivního řízení, ale v případě potřeby může převzít kontrolu. Typickým příkladem jsou autonomní bezpilotní letadla s možností vzdáleného ovládání nebo samořízené motorové vozidlo, které ke svému provozu nepotřebuje řidiče přítomného ve vozidle. \\
-\\Druhá kategorie je pro veřejnost známější. Její součástí jsou dálkově ovládaná zařízení, která nejsou plně autonomní. Do této skupiny patří široce známé kvadrokoptéry a další multikoptéry, stejně jako autíčka na dálkové ovládání.\\
-\\Důvodem časté záměny těchto dvou kategorií je překrývání některých funkcí, neboť i dálkově ovládané kvadrokoptéry využívají automatické systémy, například pro samovyvažování, které jsou nezbytné pro jejich stabilní let.\\
-\\Drony lze obecně rozdělit do tří hlavních podskupin na základě prostředí, ve kterém operují:
+
+Dron je definován jako zařízení nebo stroj schopný vykonávat úkoly bez nutnosti přímé fyzické přítomnosti člověka. Tato zařízení lze rozdělit do dvou základních kategorií.
+
+První kategorii tvoří plně autonomní roboti, u jichž je přítomnost člověka vyžadována primárně z kontrolních a bezpečnostních důvodu. Pilot nebo operátor zde většinou nezasahuje do aktivního řízení, ale v případě potřeby může převzít kontrolu. Typickým příkladem jsou autonomní bezpilotní letadla s možností vzdáleného ovládání nebo samořízené motorové vozidlo, které ke svému provozu nepotřebuje řidiče přítomného ve vozidle.
+
+Druhá kategorie je pro veřejnost známější. Ta je také nazývána drony, přestože její součástí jsou dálkově ovládaná zařízení, která nejsou plně autonomní. Do této skupiny patří široce známé kvadrokoptéry a další multikoptéry, stejně jako autíčka na dálkové ovládání.
+
+Důvodem časté záměny těchto dvou kategorií je překrývání některých funkcí, neboť i dálkově ovládané kvadrokoptéry využívají automatické systémy, například pro samovyvažování, které jsou nezbytné pro jejich stabilní let.\\
+
+Drony lze obecně rozdělit do několika hlavních skupin na základě prostředí, ve kterém operují:
 \begin{itemize}
 	\item \textbf{Bezpilotní letadla} (UAVs - Unmanned Aerial Vehicles)
 	\item \textbf{Bezpilotní pozemní vozidla} (UGV - Unmanned Ground Vehicle)
 	\item \textbf{Hladinové plavidla bez posádky} (USV - Unmanned Surface Vehicle)
 	\item \textbf{Dálkově ovládané podvodní vozidla} (ROUV - Remotely Operated Underwater Vehicles)
 	\item \textbf{Bezpilotní kosmické lodě} (Uncrewed spacecraft)
-V této práci se zaměříme na konstrukci kvadrokoptéry, která spadá do kategorie bezpilotních letadel. \cite{byod}\\
+\end{itemize}
+
+V této práci se zaměřujeme na konstrukci kvadrokoptéry, která spadá do kategorie bezpilotních letadel. Jelikož se zaměřuje pouze na tuto část dronů, rozebereme si ji podrobněji. \cite{mainbook}\\
+
+\section{Bezpilotní letadla}
+
+Bezpilotní letadlo je definováno jako zařízení určené k provozu ve vzdušném prostředí, které je buď řízeno dálkově operátorem, nebo schopno autonomního letu díky integrovanému softwaru a palubním senzorům. 
+
+Tato zařízení využívají pokročilé technologie pro navigaci, stabilizaci, komunikaci a sběr dat, přičemž jejich provozní komponenty se liší v závislosti na specifickém účelu použití. Obecně však tato zařízení zahrnují senzory nezbytné pro stabilizaci letu, jako je gyroskop a akcelerometr, spolu se senzory či moduly umožňujícími komunikaci. Komunikační technologie obvykle zahrnují přenos dat prostřednictvím rádiových vln, Wi-Fi, nebo mobilních sítí.
+
+Tato zařízení lze dále klasifikovat na základě specifických parametrů, jako je typ konstrukce křídla, hmotnost, zdroj napájení či funkční zaměření.\\
+
+Při klasifikaci na základě typu konstrukce křídla lze bezpilotní letadla rozdělit do dvou hlavních skupin:
+\begin{itemize}
+	\item Rotorová letadla - zahrnující jednorotorové a vícerotorové varianty, jako jsou trikoptéry, kvadrokoptéry, hexakoptéry a oktokoptéry.
+	\item Letadla s pevnými křídly - zahrnují drony, které vyžadují pohyb vpřed k generování vztlaku pomocí křídel. Patří sem také hybridní drony s vertikálním vzletem a přistáním, jež nevyžadují přistávací dráhu.
+\end{itemize}
+
+Zařazení na základě zdroje napájení:
+\begin{itemize}
+	\item Bateriový pohon - nejčastěji lithium-polymerové (Li-Po) nebo lithium-iontové (Li-Ion) baterie
+	\item Benzínový pohon - spalovací motor poháněný benzínem
+	\item Vodíkový pohon - napájení je zajištěno vodíkovými palivovými články, které generují elektrickou energii chemickou reakcí
+	\item Solární pohon - solární panely umístěné na povrchu dronu zajišťují nepřetržité nabíjení během letu
+\end{itemize}
+
+Zařazení na základě nejběžnějších funkčních kategorií:
+\begin{itemize}
+	\item rekreační využití
+	\item letecká fotografie a videografie
+	\item pátrací a záchranné operace
+	\item vojenský průmysl
+	\item stavební průmysl, monitorování a měření
+	\item zemědělství
+	\item dopravní a logistické služby
+\end{itemize}
+
+Tato skupina zařízení byla po dlouhou dobu spojována především s vojenským průmyslem. V současnosti však díky široké škále aplikací nacházejí stále větší uplatnění i v civilních oblastech, jako je průmysl, zemědělství nebo vědecký výzkum. Díky klesajícím cenám se osobní kvadrokoptéry stávají stále populárnějšími také pro rekreační účely. \cite{mainbook} \cite{whatisadrone}\\
+
+\section{Bezpilotní pozemní vozidla}
+
+
+
+
+
 
 
 \section{Druhy dronů}
@@ -67,18 +115,8 @@ V této práci se zaměříme na konstrukci kvadrokoptéry, která spadá do kat
 	Dobrý den, ahoj, \gls{atd}\\
 	Praha, \gls{tj} hlavní město ČR
 	
-	\begin{table}
- 		\caption{Testovací tabulka}
-		\label{tab:test2}
-			\begin{tabular}{ccccc}
-				1 & 1 & 1  & 1  & 1  \\
-				1 & 2 & 3  & 4  & 5  \\
-				1 & 3 & 6  & 10 & 15 \\
-				1 & 4 & 10 & 30 & 45
-				\end{tabular}
-	\end{table}
 
-\lipsum[2]
+
 
 \chapter[Stručná historie dronů]{Stručná historie dronů}
 %%% v obsahu se objeví jen to co je v hranatých závorkách
@@ -93,22 +131,27 @@ Tabulka \ref{tab:test2} ukazuje hádejte, co.
 \lipsum[3]
 
 \chapter{Anatomie dronu}
-			
+
+\section{Vrtule}
+\lipsum[1]
+
 \section{Motory}
 
 \lipsum[1]
 
-\section{ESP}
+\section{ESPs}
 
 \lipsum[2]
 
-\section{Baterie}
-
+\section{Flight controller}
 \lipsum[3]
 
 \section{Raspberry Pi Pico}
 
-\lipsum[4]
+\section{Airframe}
+
+\section{Baterie}
+\lipsum[3]
 
 \chapter{Fyzika letu dronu}
 
