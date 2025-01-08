@@ -175,10 +175,15 @@ Nejběžnější senzory součástí flight controlleru:
 
 Flight controller přijímá data ze senzorů a na jejich základě upravuje výkon jednotlivých motorů. \cite{mainbook}
 
+\section{Komunikační systém}
+Komunikační systém dronu slouží k přenosu informací mezi pilotem a samotným zařízením. Základem je RC ovladač, který se skládá z vysílače (drženého pilotem) a přijímače umístěného na dronu. Přijímač je přímo propojen s řídicí jednotkou (Flight Controllerem), která interpretuje přijaté signály a převádí je na odpovídající povely pro motory a další komponenty.\\
+Pro základní ovládání jsou využívány minimálně čtyři komunikační kanály, které odpovídají následujícím funkcím: náklon do stran (Roll), náklon vpřed a vzad (Pitch), otáčení kolem svislé osy (Yaw) a regulace výkonu motorů (Throttle). Alternativně může být pro komunikaci využita technologie Bluetooth, která umožňuje ovládání dronu prostřednictvím mobilních zařízení.
 
 \section{Baterie}
 
-\lipsum[2]
+Baterie je zdrojem energie pro celý dron. Nejčastěji používané jsou lithiumpolymerové (LiPo) a lithium-iontové (Li-ion) baterie díky jejich vysoké energetické hustotě, nízké hmotnosti a schopnosti dodávat vysoký proud. Alternativně se u některých systémů využívají nikl-metalhydridové (NiMH) baterie. NiMH baterie jsou odolné vůči hlubokému vybití a mechanickému namáhání. Při vysokém zatížení však poskytují nižší výkon ve srovnání s LiPo bateriemi.\\
+Baterie mohou být zapojeny sériově nebo paralelně v závislosti na požadovaném výkonu a kapacitě. Sériové zapojení zvyšuje výsledné napětí při zachování stejné kapacity, což umožňuje vyšší výkon motorů. Paralelní zapojení naopak zvyšuje kapacitu při zachování stejného napětí, což prodlužuje dobu letu dronu.\\
+Pro drony jsou ideální baterie s dostatečnou kapacitou (mAh), odpovídajícím počtem článků (S) a vysokým C-ratingem, který udává maximální proudový odběr. Tyto parametry je nutné sladit s výkonovými požadavky dronu. 
 
 \chapter{Fyzika letu dronu}
 
