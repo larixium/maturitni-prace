@@ -186,9 +186,21 @@ Baterie mohou být zapojeny sériově nebo paralelně v závislosti na požadova
 Pro drony jsou ideální baterie s dostatečnou kapacitou (mAh), odpovídajícím počtem článků (S) a vysokým C-ratingem, který udává maximální proudový odběr. Tyto parametry je nutné sladit s výkonovými požadavky dronu. 
 
 \chapter{Fyzika letu dronu}
+K zajištění letu kvadrokoptéry je nezbytné, aby byla schopna vykonávat tři základní typy pohybu: vertikální pohyb, laterální pohyb a rotační pohyb. Na základě třetího Newtonova zákona lze každý z těchto pohybů realizovat prostřednictvím čtyř rotorů kvadrokoptéry.
 
-\lipsum[1]
+\section{Vertikální pohyb}
+Newtonův třetí zákon pohybu stanovuje, že každé akci odpovídá stejně velká, avšak opačně orientovaná reakce.\\
+V případě kvadrokoptéry dochází při rotaci jejích rotorů k vytlačování vzduchu směrem dolů, což představuje akční sílu. Na základě uvedeného zákona musí existovat odpovídající reakční síla, která působí směrem vzhůru na kvadrokoptéru. Jakmile velikost této vztlakové síly převýší gravitační sílu působící na kvadrokoptéru, dojde k jejímu vertikálnímu pohybu směrem vzhůru.
 
+\section{Laterální pohyb}
+Pokud vztlaková síla působí kolmo vzhůru, kvadrokoptéra se pohybuje vertikálně. Pokud však působí pod úhlem, dochází i k laterálnímu pohybu. Tento jev nastává v důsledku rozkladu vztlakové síly, která působí na dron jak ve vertikálním, tak v horizontálním směru. To způsobuje pohyb kvadrokoptéry do stran nebo ve směru dopředu a dozadu.\\
+Laterální pohyb je realizován změnou rychlosti otáčení rotorů. Zvýšení rychlosti dvou rotorů na jedné straně kvadrokoptéry vede k nerovnoměrnému rozložení vztlakové síly. Strana s rychleji rotujícími rotory generuje větší vztlak než opačná strana, což způsobí, že se nakloněná kvadrokoptéra pohybuje směrem k oblasti s nižším vztlakem.
+
+\section{Rotační pohyb}
+Posledním typem pohybu kvadrokoptéry je rotace, která je výsledkem působení točivého momentu. Tento moment vzniká v důsledku otáčení rotorů, přičemž podle třetího Newtonova zákona se současně generuje síla stejné velikosti, avšak opačného směru.\\
+Točivý moment ovlivňuje kvadrokoptéru při rotaci rotorů, neboť každý jednotlivý rotor generuje svůj vlastní moment síly. Celkový točivý moment působící na kvadrokoptéru je součtem momentů všech čtyř rotorů. Pro eliminaci tohoto momentu se využívá konstrukční řešení, při němž se dva rotory otáčejí ve směru hodinových ručiček a dva v protisměru. Tyto momenty se vzájemně vyruší, čímž se eliminuje nekontrolovaná rotace kvadrokoptéry.\\
+Točivý moment lze však také využít k řízené rotaci kvadrokoptéry. Pokud se například rotory 1 a 3 otáčejí rychleji než rotory 2 a 4, výsledný moment síly proti směru hodinových ručiček převáží nad momentem síly ve směru hodinových ručiček, což způsobí rotaci kvadrokoptéry proti směru hodinových ručiček. Naopak, pokud se rotory 2 a 4 otáčejí rychleji než rotory 1 a 3, kvadrokoptéra se začne otáčet ve směru hodinových ručiček.\\
+Pro správné fungování je potřeba mít dva druhy vrtulí tak, aby všechny tlačily vzduch směrem k zemi. Jak je patrné na obrázku 9, jeden typ rotoru má levý okraj listu výše v přední části, zatímco druhý typ má výše pravý okraj.
 %%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
 \part{Konstrukce kvadrokoptéry} % název praktické části (nenechávejte název Praktická část)
 
@@ -196,20 +208,14 @@ Pro drony jsou ideální baterie s dostatečnou kapacitou (mAh), odpovídající
 \lipsum[1]	
 
 \chapter{Průběh Konstrukce}
-
-\lipsum[1]	
-
-\section{Druhy dronů}
-	Odkaz v závorkách: \parencite[see][page 900]{einstein}\\
-	Odkaz: \cite{knuthwebsite}\\
-	A odkaz pod čarou: \footcite[see][s. 42]{latexcompanion}\\
-	Dobrý den, ahoj, \gls{atd}\\
-	Praha, \gls{tj} hlavní město ČR
-	
-
-
-
-\chapter[Stručná historie dronů]{Stručná historie dronů}
+text
+Odkaz v závorkách: \parencite[see][page 900]{einstein}\\
+Odkaz: \cite{knuthwebsite}\\
+A odkaz pod čarou: \footcite[see][s. 42]{latexcompanion}\\
+Dobrý den, ahoj, \gls{atd}\\
+Praha, \gls{tj} hlavní město ČR
+text
+\chapter[Vývoj flight controlleru]{Vývoj flight controlleru}
 %%% v obsahu se objeví jen to co je v hranatých závorkách
 \begin{figure}
   \includegraphics[width=\linewidth]{test.jpg}
