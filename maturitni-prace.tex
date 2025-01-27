@@ -205,9 +205,66 @@ Pro správné fungování je potřeba mít dva druhy vrtulí tak, aby všechny t
 \part{Konstrukce kvadrokoptéry} % název praktické části (nenechávejte název Praktická část)
 
 \chapter{Součástky}
-\lipsum[1]	
+Zkonstruovaný dron se skládá, bez kterých by jeho realizace byla nemožná. V této kapitole si ukážeme konkrétní použité zařízení a vysvětlíme si jejich specifikace. Tělo dronu se skládá z rámu, motorů, ESC, rozvodné desky napájení a baterie. Flight controller se skládá z Arduina, Bluetooth modulu, modulu gyroskopu-akcelerometru, nepájivého pole. Většina těchto součástek byla zakoupena na online platformě Aliexpress.
+
+\section{Rám}
+Při konstrukci dronu byl zvolen 3D tištěný rám pro jeho nízkou hmotnost a dostatečnou mechanickou odolnost. Využití 3D tisku umožnilo výrobu rámu s přesnými rozměry a vlastnostmi dle individuálních požadavků. Pro samotný tisk byl použit standardní materiál PLA, který se vyznačuje snadnou tisknutelností a dostatečnou pevností pro danou aplikaci.\\
+Model byl vytvořen jako upravená varianta existujícího designu dostupného na platformě Thingiverse (https://www.thingiverse.com/thing:234867). Tato stránka poskytuje veškeré potřebné modely pro 3D tisk, které jsou volně dostupné ke stažení. Díky této otevřené databázi bylo možné provést úpravy a přizpůsobit konstrukci dronu specifickým požadavkům.\\
+Do spojů vytištěného rámu byly integrovány šrouby a matice, které zajišťují pevné spojení jednotlivých komponent. Tato konstrukční metoda zvyšuje mechanickou stabilitu rámu a umožňuje snadnou demontáž či výměnu dílů v případě potřeby.
+
+\section{Motory}
+Jako pohonná jednotka byl zvolen bezkartáčový motor 2212 920KV, který nabízí optimální rovnováhu mezi výkonem a spotřebou energie. U dronů se obecně preferují outrunner motory, které jsou díky své konstrukci efektivnější, poskytují vyšší točivý moment a lepší chladicí vlastnosti, což je zásadní pro stabilní a efektivní let.\\
+Hodnota KV udává počet otáček motoru za minutu (RPM) na jeden volt napájecího napětí bez zatížení. To znamená, že například motor 2212 920KV při napětí 1V dosáhne přibližně 920 ot./min, při 2V to bude 1840 ot./min atd.\\
+Druhé uvedené číslo v označení motoru udává jeho rozměry. První dvě číslice (22) v označení motoru 2212 udávají průměr statoru v milimetrech, zatímco druhé dvě číslice (12) označují výšku statoru v milimetrech.\\
+V neposlední řadě je důležité dbát na správnou orientaci závitu tak, aby se utahování vrtule vždy provádělo proti směru otáčení motoru. Toto řešení je klíčové z hlediska bezpečnosti, protože zabraňuje uvolnění vrtule při prudkém zpomalení nebo zastavení motoru. Pro stabilizaci letu je nutné, aby byly použity dva motory s pravotočivou rotací (CW - Clockwise) a dva s levotočivou rotací (CCW - Counterclockwise).\\
+
+\section{Vrtule}
+Zvolené vrtule nesou označení 1045, kde první dvě číslice označují průměr vrtule v palcích a poslední dvě číslice představují stoupání vrtule v palcích. Stoupání vrtule (propeller pitch) určuje vzdálenost, kterou by vrtule teoreticky urazila v jednom otočení při ideálních podmínkách. Vyšší stoupání znamená větší objem vzduchu přemístěného směrem dolů během rotace, což zvyšuje tah, ale zároveň zvyšuje aerodynamický odpor a zatížení motoru. Princip lze přirovnat ke závitu šroubu, kde stoupání určuje hloubku zavrtání na jednu otáčku. Obdobně u vrtule odpovídá stoupání tomu, jak hluboko se „zavrtává“ do vzduchu.
+
+\section{ESC}
+Brushless motory vyžadují třífázové napájení, což je poměrně složitý proces, který zajišťuje vestavěný mikrořadič v ESC. Z našeho pohledu stačí do ESC přivést napájecí proud a prostřednictvím signálního vodiče mu sdělit, jakou rychlostí se má motor otáčet.\\
+Je důležité zajistit, aby ESC bylo kompatibilní s daným bezkartáčovým motorem. Klíčovými parametry jsou maximální napětí a proud, které ESC zvládne. Pro správnou funkci je také nutné ESC spájet s rozvodnou deskou napájení, která rozvádí napětí z baterie ke všem komponentům.
+
+\section{Rozvodná deska napájení}
+Rozvodná deska napájení (PDB) slouží k distribuci energie z baterie do všech komponent. Všechny čtyři ESC jsou k této desce připájeny a baterie je k ní připojena přes bezpečný napájecí konektor.
+
+\section{Baterie}
+Zdroj veškeré energie pro dron. V této práci byla vybrána baterie se specifikací LiPo 2200mAh 14.8V 30C 4S1P.\\
+Začněme částí 4S. Bateriový pack je složen z jednotlivých malých bateriových článků. Jeden LiPo článek má vždy 4,2 V, když je plně nabitý, a 3,7 V, když je vybitý. Označení 4S znamená, že čtyři články jsou zapojeny sériově, což znamená, že výsledné napětí baterie se sčítá. Plně nabité napětí celého bateriového packu tedy činí 16,8 V.\\
+Hodnota 2200mAh označuje celkovou kapacitu baterie, což znamená, že při odběru 2,2 A by baterie měla teoreticky vydržet jednu hodinu.\\
+Posledním parametrem je C-rating, který udává maximální proud, který je baterie schopna dodat. Maximální proud lze vypočítat jako C-rating × kapacita v Ah:
+\begin{center}
+    \[
+    30C \times 2.2\text{Ah} = 66\text{A}
+    \]
+\end{center}
+Tato hodnota představuje trvalý vybíjecí proud, který může baterie bezpečně poskytovat. Některé baterie mají také burst rating, což znamená, že krátkodobě mohou dodat ještě vyšší proud, například dvojnásobek této hodnoty.
+
+\section{Arduino}
+Arduino je programovatelný mikrokontrolér umožňující připojení dalších komponent pro specifické aplikace. Pro tento projekt byla zvolena platforma Arduino UNO, a to především díky vysokému počtu připojovacích pinů a jednoduché manipulaci. Arduino zde plní funkci řídicí jednotky letu (flight controlleru), která na základě vstupních údajů získaných prostřednictvím Bluetooth modulu a akcelerometru provádí výpočty potřebné k regulaci motorů. Zařízení nevyžaduje samostatný napájecí zdroj, neboť je napájeno přímo z motorového obvodu.
+
+\section{Bluetooth modul}
+Bluetooth modul HC-05 je bezdrátový komunikační modul umožňující obousměrný přenos dat mezi mikrokontrolérem a externím zařízením. Pro tento projekt byl zvolen právě HC-05 díky své kompatibilitě s platformou Arduino UNO a jednoduché implementaci sériové komunikace prostřednictvím protokolu UART. Modul umožňuje bezdrátové ovládání a přenos řídicích signálů mezi uživatelským rozhraním mobilní aplikace a řídicí jednotkou letu. HC-05 pracuje ve frekvenčním pásmu 2,4 GHz s maximálním dosahem přibližně 10–20 metrů, což je pro tento projekt dostačující. Přenosová rychlost modulu může dosahovat až 1 Mb/s, což umožňuje efektivní a spolehlivou komunikaci mezi zařízením a řídicí jednotkou. 
+
+\section{Akcelerometr a gyroskop}
+MPU6050 je měřicí jednotka integrující tříosý gyroskop a tříosý akcelerometr do jednoho čipu, což umožňuje komplexní měření pohybu a orientace v prostoru. Pro tento projekt byl zvolen MPU6050 díky jeho vysoké přesnosti, kompaktním rozměrům a kompatibilitě s platformou Arduino UNO prostřednictvím sběrnice I²C. Modul poskytuje klíčová data o náklonu, zrychlení a úhlové rychlosti, která jsou využívána řídicí jednotkou při výpočtu stabilizačních algoritmů a optimalizaci řízení motorů.
 
 \chapter{Průběh Konstrukce}
+Prvním krokem v procesu konstrukce dronu bylo vytvoření jeho rámu pomocí 3D tisku. Po několika neúspěšných pokusech se podařilo úspěšně vytisknout jednotlivé součásti s požadovanou přesností a strukturální pevností. Pro zajištění vyšší soudržnosti konstrukce byly do klíčových částí rámu zataveny kovové závitové vložky, které umožňují pevné uchycení komponent pomocí šroubů. Tyto výztuhy byly umístěny především v centrální části rámu, kde bylo nezbytné pevně připojit ramena ke středu dronu, a na koncích ramen, kde dochází k upevnění motorů s vysokým tahem.\\
+Dalším krokem byla instalace a zapojení napájecího systému. Jednotlivé napájecí vodiče motorů byly připájeny k rozvodové desce, která zajišťuje distribuci elektrické energie v celém systému. Stejným způsobem byl k rozvodové desce připojen hlavní napájecí kabel, přes který je k desce připojena baterie. Po dokončení byly motory upevněny na koncích ramen dronu tak, aby jejich směr otáčení odpovídal požadované konfiguraci letového systému.\\
+Motory byly ke konstrukci připevněny pomocí šroubků, přičemž pro dodatečnou stabilizaci byly elektronické regulátory otáček (ESC) zajištěny pomocí instalačních pásků.\\
+Po dokončení mechanické konstrukce dronu následoval klíčový krok, kterým je návrh a implementace řídicí jednotky letu (flight controlleru).
+
+\chapter[Vývoj flight controlleru]{Vývoj flight controlleru}
+Hlavní řídicí jednotkou flight controlleru je Arduino UNO. Prvním krokem bylo připojení Bluetooth modulu HC-05 a modulu MPU6050, který integruje akcelerometr a gyroskop. Tyto komponenty byly propojeny s Arduinem pomocí vodivých vodičů a nepájivého kontaktního pole, což umožňuje flexibilní zapojení a případné úpravy obvodu.\\
+Samotný řídicí software pro Arduino byl vytvořen v prostředí Arduino IDE, které je speciálně uzpůsobeno pro vývoj aplikací na platformě Arduino. Programovací jazyk použitý v kódu je C++, což umožňuje efektivní práci s hardwarem a implementaci nízkoúrovňových operací nezbytných pro řízení dronu.\\
+Kromě programování řídicí jednotky bylo nutné vyvinout také mobilní aplikaci, která umožňuje ovládání dronu prostřednictvím Bluetooth komunikace. Pro tento účel byla využita aplikace Bluetooth Electronics, která poskytuje širokou škálu přizpůsobitelných tlačítek a předpřipravených ovládacích panelů. Tato aplikace rovněž umožňuje nastavení jednotlivých příkazů odesílaných přes Bluetooth a automaticky zajišťuje propojení mezi mobilním zařízením a Bluetooth modulem dronu.\\
+Profesionální drony jsou vybaveny pokročilým softwarem pro stabilizaci a automatickou korekci polohy. Konstrukčně realizovaný dron však funguje pouze na principu přímého příjmu ovládacích příkazů, přičemž neobsahuje stabilizační algoritmy. Výsledkem je vysoká nestabilita a značná náchylnost k vychýlení během letu. Implementace stabilizačního systému by vyžadovala složité programování, které by významně rozšířilo rozsah této maturitní práce.\\
+Navržený dron je kompletně zhotoven po hardwarové stránce, přičemž zbývající vývoj pro stabilizovaný let se týká implementace softwarového stabilizačního systému v Arduinu.
+
+
+
+\chapter{priklady v latexu}
 text
 Odkaz v závorkách: \parencite[see][page 900]{einstein}\\
 Odkaz: \cite{knuthwebsite}\\
