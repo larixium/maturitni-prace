@@ -7,6 +7,7 @@
 \usepackage{listingsutf8}
 \usepackage{float}
 \usepackage{MP}
+\setlength{\parindent}{15pt} % Nastaví odsazení prvního řádku odstavce na 15pt
 						  % Import stylu maturitní práce
 \author{Kryštof Maxera}                  % AUTOR PRÁCE
 \title{Konstrukce dronu}    % NÁZEV PRÁCE
@@ -45,36 +46,37 @@
 \lipsum[1]	
 	
 %%%%%%%%%%%%%% TEORETICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
-\part{Úvod do světa dronů}  % název teoretické části (nenechávejte Teoretická část)
-	
+\part[Úvod do světa dronů]{Úvod do světa dronů}  % název teoretické části (nenechávejte Teoretická část)
+
 \chapter[Definice a charakteristika dronů]{Definice a charakteristika dronů}
 
-Dron je definován jako zařízení nebo stroj schopný vykonávat úkoly bez nutnosti přímé fyzické přítomnosti člověka. Tato zařízení lze rozdělit do dvou základních kategorií.
-
-První kategorii tvoří plně autonomní roboti, u jichž je přítomnost člověka vyžadována primárně z kontrolních a bezpečnostních důvodu. Pilot nebo operátor zde většinou nezasahuje do aktivního řízení, ale v případě potřeby může převzít kontrolu. Typickým příkladem jsou autonomní bezpilotní letadla s možností vzdáleného ovládání nebo samořízené motorové vozidlo, které ke svému provozu nepotřebuje řidiče přítomného ve vozidle.
-
-Druhá kategorie je pro veřejnost známější. Ta je také nazývána drony, přestože její součástí jsou dálkově ovládaná zařízení, která nejsou plně autonomní. Do této skupiny patří široce známé kvadrokoptéry a další multikoptéry, stejně jako autíčka na dálkové ovládání.
-
-Důvodem časté záměny těchto dvou kategorií je překrývání některých funkcí, neboť i dálkově ovládané kvadrokoptéry využívají automatické systémy, například pro samovyvažování, které jsou nezbytné pro jejich stabilní let.\\
+Dron je definován jako zařízení nebo stroj schopný vykonávat úkoly bez nutnosti přímé fyzické přítomnosti člověka. Tato zařízení lze rozdělit do dvou základních kategorií.\\
+První kategorii tvoří plně autonomní roboti, u jichž je přítomnost člověka vyžadována primárně z kontrolních a bezpečnostních důvodu. Pilot nebo operátor zde většinou nezasahuje do aktivního řízení, ale v případě potřeby může převzít kontrolu. Typickým příkladem jsou autonomní bezpilotní letadla s možností vzdáleného ovládání nebo samořízené motorové vozidlo, které ke svému provozu nepotřebuje řidiče přítomného ve vozidle.\\
+Druhá kategorie je pro veřejnost známější. Zařízení v této kategorii se také nazývají drony, přestože se jedná dálkově ovládaná zařízení, která nejsou plně autonomní. Do této skupiny patří široce známé kvadrokoptéry a další multikoptéry, stejně jako autíčka na dálkové ovládání.\\
+Důvodem časté záměny těchto dvou kategorií je překrývání některých funkcí, neboť i dálkově ovládané kvadrokoptéry využívají automatické systémy, například pro samovyvažování, které jsou nezbytné pro jejich stabilní let.\cite{mainbook}\\
 
 Drony lze obecně rozdělit do několika hlavních skupin na základě prostředí, ve kterém operují:
 \begin{itemize}
 	\item \textbf{Bezpilotní letadla} (UAVs - Unmanned Aerial Vehicles)
 	\item \textbf{Bezpilotní pozemní vozidla} (UGV - Unmanned Ground Vehicle)
-	\item \textbf{Hladinové plavidla bez posádky} (USV - Unmanned Surface Vehicle)
-	\item \textbf{Dálkově ovládané podvodní vozidla} (ROUV - Remotely Operated Underwater Vehicles)
+	\item \textbf{Hladinová plavidla bez posádky} (USV - Unmanned Surface Vehicle)
+	\item \textbf{Dálkově ovládaná podvodní vozidla} (ROUV - Remotely Operated Underwater Vehicles)
 	\item \textbf{Bezpilotní kosmické lodě} (Uncrewed spacecraft)
 \end{itemize}
 
 Přestože označení dron lze použít pro širokou škálu zařízeních, pro širokou veřejnost je toto slovo primárně spjaté s dálkově ovládanými bezpilotními letadly. Samo o sobě však toto označení není chybné. V této práci se zaměřujeme na konstrukci kvadrokoptéry, která spadá do kategorie bezpilotních letadel. O té práce pojednává podrobněji. \cite{mainbook}
 
-\section{Bezpilotní letadla}
-
-Bezpilotní letadlo je definováno jako zařízení určené k provozu ve vzdušném prostředí, které je buď řízeno dálkově operátorem, nebo schopno autonomního letu díky integrovanému softwaru a palubním senzorům. 
-
-Tato zařízení využívají pokročilé technologie pro navigaci, stabilizaci, komunikaci a sběr dat, přičemž jejich provozní komponenty se liší v závislosti na specifickém účelu použití. Obecně však tato zařízení zahrnují senzory nezbytné pro stabilizaci letu, jako je gyroskop a akcelerometr, spolu se senzory či moduly umožňujícími komunikaci. Komunikační technologie obvykle zahrnují přenos dat prostřednictvím rádiových vln, Wi-Fi, nebo mobilních sítí.
-
+\section[Bezpilotní letadla]{Bezpilotní letadla}
+Bezpilotní letadlo (UAV) je definováno jako zařízení určené k provozu ve vzdušném prostředí, které je buď řízeno dálkově operátorem, nebo schopno autonomního letu díky integrovanému softwaru a palubním senzorům.\\
+Tato zařízení využívají pokročilé technologie pro navigaci, stabilizaci, komunikaci a sběr dat, přičemž jejich provozní komponenty se liší v závislosti na specifickém účelu použití. Obecně však tato zařízení obsahují senzory nezbytné pro stabilizaci letu, jako je gyroskop a akcelerometr, spolu se senzory či moduly umožňujícími komunikaci. Komunikační technologie obvykle zahrnují přenos dat prostřednictvím rádiových vln, Wi-Fi, nebo mobilních sítí.\\
 Tato zařízení lze dále klasifikovat na základě specifických parametrů, jako je typ konstrukce křídla, hmotnost, zdroj napájení či funkční zaměření.\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{uav.png}
+	\caption{Bezpilotní letadlo General Atomics MQ-1 Predator \cite{mainbook}}
+	\label{fig:uav.png}
+  \end{figure}
 
 Při klasifikaci na základě typu konstrukce křídla lze bezpilotní letadla rozdělit do dvou hlavních skupin:
 \begin{itemize}
@@ -90,7 +92,7 @@ Zařazení na základě zdroje napájení:
 	\item Solární pohon - solární panely umístěné na povrchu dronu zajišťují nepřetržité nabíjení během letu
 \end{itemize}
 
-Zařazení na základě nejběžnějších funkčních kategorií:
+Zařazení na základě způsobu použití:
 \begin{itemize}
 	\item rekreační využití
 	\item letecká fotografie a videografie
@@ -101,24 +103,24 @@ Zařazení na základě nejběžnějších funkčních kategorií:
 	\item dopravní a logistické služby
 \end{itemize}
 
-Tato skupina zařízení byla po dlouhou dobu spojována především s vojenským průmyslem. V současnosti však díky široké škále aplikací nacházejí stále větší uplatnění i v civilních oblastech, jako je průmysl, zemědělství nebo vědecký výzkum. Díky klesajícím cenám se osobní kvadrokoptéry stávají stále populárnějšími také pro rekreační účely. \cite{mainbook} \cite{whatisadrone}\\
+Tato skupina zařízení byla po dlouhou dobu spojována především s vojenským průmyslem. V současnosti však díky široké škále aplikací nacházejí stále větší uplatnění i v civilních oblastech jako je průmysl, zemědělství nebo vědecký výzkum. Díky klesajícím cenám se osobní kvadrokoptéry stávají stále populárnějšími také pro rekreační účely. \cite{mainbook} \cite{whatisadrone}\\
 
-\section{Bezpilotní pozemní vozidla}
-Jedná se o pozemní vozidla bez potřebné fyzické přítomnosti člověka. Ve srovnání se vzdušnými bezpilotními drony jsou mnohem jednodušší na konstrukci, protože nevyžadují překonávání fyzikálních zákonů spojených s letem. Tato vlastnost přispívá k jejich širokému využití napříč různými sektory. Lze je nalézt například v zemědělství jako samosklízecí traktory, v oblasti samořídících dopravních prostředků, v těžebním průmyslu, v automatizovaných skladech s roboty pro transport zboží nebo v úklidovém sektoru, kde se využívají autonomní vysavače. Své uplatnění nacházejí také ve vojenském sektoru. \cite{mainbook}
+\section[Bezpilotní pozemní vozidla]{Bezpilotní pozemní vozidla}
+Jedná se o pozemní vozidla bez potřebné fyzické přítomnosti člověka. Ve srovnání se vzdušnými bezpilotními drony jsou mnohem jednodušší na konstrukci. Tato vlastnost přispívá k jejich širokému využití napříč různými sektory. Lze je nalézt například v zemědělství jako samosklízecí traktory, v oblasti samořídících dopravních prostředků, v těžebním průmyslu, v automatizovaných skladech s roboty pro transport zboží nebo v úklidovém sektoru, kde se využívají jako autonomní vysavače. Své uplatnění nacházejí také ve vojenském sektoru. \cite{mainbook}
 
-\section{Hladinové plavidla bez posádky}
-Plavidla pohybující se po mořské nebo sladkovodní hladině. Často jsou využívána pro těžební operace na moři, vědecký výzkum či monitorování vodních ekosystémů. Nelze opomenout jejich vojenské využití. Tato zařízení používají pro komunikaci obdobné technologie jako bezpilotní letadla. \cite{mainbook}
+\section[Hladinová plavidla bez posádky]{Hladinová plavidla bez posádky}
+Plavidla pohybující se po mořské nebo sladkovodní hladině. Často jsou využívána pro těžební operace na moři, vědecký výzkum či monitorování vodních ekosystémů. Významné je také jejich vojenské využití. Tato zařízení používají pro komunikaci obdobné technologie jako bezpilotní letadla. \cite{mainbook}
 
-\section{Dálkově ovládané podvodní vozidla}
-Podvodní zařízení, určená převážně pro průzkumné a vědecké účely, představují klíčový nástroj pro studium mořského prostředí. Jejich fungování se však výrazně liší od ostatních autonomních systémů, a to kvůli technickým výzvám spojených s provozem ve velkých hloubkách. V těchto podmínkách je použití rádiových vln pro komunikaci téměř nemožné kvůli jejich omezené prostupnosti vodou. Namísto bezdrátové komunikace jsou proto tato zařízení často spojena s mateřskou lodí nebo ponorkou pomocí robustního kabelu, který slouží nejen jako přenosové médium pro data, ale i jako zdroj energie. \cite{mainbook}
+\section[Dálkově ovládaná podvodní vozidla]{Dálkově ovládaná podvodní vozidla}
+Podvodní zařízení určená převážně pro průzkumné a vědecké účely. Představují klíčový nástroj pro studium mořského prostředí. Jejich fungování se však výrazně liší od ostatních autonomních systémů, a to kvůli technickým výzvám spojených s provozem ve velkých hloubkách. V těchto podmínkách je použití rádiových vln pro komunikaci téměř nemožné kvůli jejich omezené prostupnosti vodou. Namísto bezdrátové komunikace jsou proto tato zařízení spojena s mateřskou lodí nebo ponorkou pomocí robustního kabelu, který slouží nejen jako přenosové médium pro data a jako zdroj energie. \cite{mainbook}
 
-\section{Bezpilotní kosmické lodě}
-Vesmír představuje ideální prostředí pro využití dronů, neboť je pro lidskou přítomnost extrémně nehostinný. Vesmírné drony nabízejí méně rizikové řešení pro dosažení různých cílů bez nutnosti návratu zařízení zpět na Zemi. Jejich využití zahrnuje kosmický prostor, kde slouží k prozkoumávání vzdálených objektů, povrchy nehostinných planet, kde fungují jako rovery, a oběžnou dráhu Země, kde podporují fungování klíčových technologií, jako je například GPS. \cite{mainbook}\\
+\section[Bezpilotní kosmické lodě]{Bezpilotní kosmické lodě}
+Vesmír představuje ideální prostředí pro využití dronů. Jedná se o místo, které je význačné svou nehostinnostní pro lidskou přítomnost. Vesmírné drony nabízejí méně rizikové řešení pro dosažení různých cílů bez nutnosti návratu zařízení zpět na Zemi. Místa, kde se využívají, zahrnují kosmický prostor, kde slouží k prozkoumávání vzdálených objektů, povrchy nehostinných planet, kde fungují jako rovery, a oběžnou dráhu Země, kde podporují fungování klíčových technologií, jako je například GPS. \cite{mainbook}\\
 
-Využití všech těchto typů dronů má společnou vlastnost. Jejich využití je na místech, kde lze pracovní sílu člověka nahradit automatickým zařízením nebo místech, které jsou příliš riskantní pro přítomnost člověka. Jejich nasazení se neustále rozšiřuje a lze bez pochybností předpokládat, že v budoucnu bude jejich význam dále narůstat.
+Využití všech těchto typů dronů má společnou vlastnost. Jejich využití je na místech, kde lze drahou pracovní sílu člověka nahradit automatickým zařízením nebo místech, které jsou příliš riskantní pro přítomnost člověka. Jejich nasazení se neustále rozšiřuje a lze předpokládat, že v budoucnu bude jejich význam dále narůstat.
 
 \chapter[Anatomie multikoptéry]{Anatomie multikoptéry}
-Každá multikoptéra, ať už profesionálně vyrobená nebo sestavená v domácích podmínkách, se liší svým konstrukčním hardwarem. Nicméně většinu těchto zařízení spojuje použití podobných klíčových komponent. Tato kapitola se zaměřuje na podrobný popis nejběžnějších součástek, které byly využity při konstrukci kvadrokoptéry v praktické části práce.
+Každá multikoptéra, ať už profesionálně vyrobená nebo sestavená v domácích podmínkách, se liší svým konstrukčním hardwarem. Nicméně většinu těchto zařízení spojuje použití podobných klíčových komponent. Tato kapitola se zaměřuje na podrobný popis nejběžnějších součástek, které zároveň byly využity při konstrukci kvadrokoptéry v praktické části práce.
 
 \section{Rám}
 Rám dronu tvoří základní konstrukční prvek, který drží všechny komponenty pohromadě. Typ rámu použitý u dronu má zásadní vliv na jeho celkové vlastnosti. Klíčovým aspektem při výběru a návrhu rámu je nalezení optimálního poměru mezi hmotností, velikostí a pevností, aby konstrukce byla co nejvíce odolná vůči nárazům a pádům, zároveň však nezvyšovala zbytečně hmotnost zařízení. Tento vyvážený design hraje významnou roli ve stabilitě, ovladatelnosti a životnosti dronu.
