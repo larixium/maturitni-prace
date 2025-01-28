@@ -4,7 +4,10 @@
 % veškeré úpravy v soubor MP.sty (styl maturitní práce)
 \documentclass[12pt]{report}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{MP}						  % Import stylu maturitní práce
+\usepackage{listingsutf8}
+\usepackage{float}
+\usepackage{MP}
+						  % Import stylu maturitní práce
 \author{Kryštof Maxera}                  % AUTOR PRÁCE
 \title{Konstrukce dronu}    % NÁZEV PRÁCE
 \date{14. února 2025}                 % DATUM ODEVZDÁNÍ PRÁCE
@@ -256,6 +259,7 @@ Motory byly ke konstrukci připevněny pomocí šroubků, přičemž pro dodate�
 Po dokončení mechanické konstrukce dronu následoval klíčový krok, kterým je návrh a implementace řídicí jednotky letu (flight controlleru).
 
 \chapter[Vývoj flight controlleru]{Vývoj flight controlleru}
+%%% v obsahu se objeví jen to co je v hranatých závorkách
 Hlavní řídicí jednotkou flight controlleru je Arduino UNO. Prvním krokem bylo připojení Bluetooth modulu HC-05 a modulu MPU6050, který integruje akcelerometr a gyroskop. Tyto komponenty byly propojeny s Arduinem pomocí vodivých vodičů a nepájivého kontaktního pole, což umožňuje flexibilní zapojení a případné úpravy obvodu.\\
 Samotný řídicí software pro Arduino byl vytvořen v prostředí Arduino IDE, které je speciálně uzpůsobeno pro vývoj aplikací na platformě Arduino. Programovací jazyk použitý v kódu je C++, což umožňuje efektivní práci s hardwarem a implementaci nízkoúrovňových operací nezbytných pro řízení dronu.\\
 Kromě programování řídicí jednotky bylo nutné vyvinout také mobilní aplikaci, která umožňuje ovládání dronu prostřednictvím Bluetooth komunikace. Pro tento účel byla využita aplikace Bluetooth Electronics, která poskytuje širokou škálu přizpůsobitelných tlačítek a předpřipravených ovládacích panelů. Tato aplikace rovněž umožňuje nastavení jednotlivých příkazů odesílaných přes Bluetooth a automaticky zajišťuje propojení mezi mobilním zařízením a Bluetooth modulem dronu.\\
@@ -272,8 +276,7 @@ A odkaz pod čarou: \footcite[see][s. 42]{latexcompanion}\\
 Dobrý den, ahoj, \gls{atd}\\
 Praha, \gls{tj} hlavní město ČR
 text
-\chapter[Vývoj flight controlleru]{Vývoj flight controlleru}
-%%% v obsahu se objeví jen to co je v hranatých závorkách
+
 \begin{figure}
   \includegraphics[width=\linewidth]{test.jpg}
   \caption{Testovací}
@@ -313,12 +316,24 @@ Soucet: 52.4415
 \end{lstlisting}
 
 \chapter{Program}
-
-\lipsum[1]
+Program Arduina je navržen tak, aby umožňoval bezdrátové řízení kvadrokoptéry prostřednictvím mobilní aplikace Bluetooth Electronics, která využívá Bluetooth komunikace. Program přijímá vysílané příkazy, analyzuje je a na jejich základě ovládá jednotlivé motory dronu. Každý ovládací prvek v aplikaci vysílá specifický signál s předponou, která umožňuje jeho správnou interpretaci.\\
+Ovládání kvadrokoptéry je realizováno několika prvky. Směrová tlačítka umístěná na levé straně ovladače ve tvaru „+“, vysílají příkazy s předponou p: a číslem 1 až 4. Tlačítko šipky nahoru slouží ke zvýšení výkonu motorů, šipka dolů jej naopak snižuje. Směrová tlačítka vlevo a vpravo ovlivňují rotaci dronu kolem jeho vertikální osy. Při uvolnění jakéhokoliv tlačítka se odešle příkaz p:0.\\
+K řízení směru letu slouží pravý joystick, jehož výchylka určuje náklon dronu. Tento prvek využívá příkazy s předponou m: a souřadnicemi následující písmena X a Y, které odpovídají aktuální poloze joysticku na obrazovce mobilního zařízení. Na základě míry vychýlení joysticku se kvadrokoptéra nakloní v příslušném směru, čímž dochází ke změně trajektorie letu.\\
+Důležitou součástí ovládacího systému jsou také bezpečnostní prvky. Červené tlačítko v horní části ovladače slouží jako nouzový vypínač a při jeho stisknutí dojde k okamžitému zastavení všech motorů. Žluté tlačítko zatím nemá přiřazenou funkci.\\
+Pro zajištění spolehlivého provozu obsahuje program textový výstup, který umožňuje monitorování přijatých příkazů a jejich zpracování. Tyto informace lze zobrazit při připojení Arduina k počítači přes USB kabel. Program rovněž implementuje bezpečnostní mechanismus, který zajistí, že v případě ztráty spojení mezi mobilním zařízením a kvadrokoptérou dojde k okamžitému zastavení motorů.\\
+Při nahrávání nového kódu do Arduina je nezbytné dočasně odpojit vodiče připojené k pinům 0 a 1, jelikož tyto piny jsou využívány během inicializace programu. Po úspěšném nahrání je nutné vodiče znovu připojit na původní místo, aby mohla kvadrokoptéra správně komunikovat s mobilní aplikací. Dalším bezpečnostním opatřením je zabudovaná ochrana motorů, která vyžaduje, aby byl jejich výkon při startu nastaven na nulu. Teprve poté mohou být motory aktivovány.\\
+Tento program tak umožňuje efektivní a bezpečné ovládání kvadrokoptéry, přičemž zohledňuje jak uživatelskou přívětivost, tak i bezpečnostní aspekty provozu.
 
 \chapter{Schéma zapojení}
+Propojení Arduina s Bluetooth modulem, akcelerometrem, gyroskopem, baterií, regulátory ESC a motory je znázorněné na obrázku v programu Fritzing. Na schématu je patrný způsob napájení. Celá pohonná soustava čerpá energii přímo z připojené baterie, zatímco samotné Arduino je napájeno přes ESC propojené s 5V pinem. Dva z bezkartáčových motorů mají odlišné zapojení vodičů, což způsobuje jejich opačnou rotaci.
 
-\lipsum[1]
+\vspace{40pt}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{drone-scheme.png}
+	\caption{Obrázek x.y: Schéma propojení modulů s Arduinem a pohonného systému}
+	\label{fig:drone-scheme.png}
+  \end{figure}
 
 %%%%%%%%%%%%% ZÁVĚR
 \chapter*{Závěr}
@@ -330,7 +345,6 @@ Soucet: 52.4415
 \addcontentsline{toc}{chapter}{Bibliografie}
 \printglossary[title={Zkratky}]		% Vytvoří seznam zkratek
 \listoffigures						% Vytvoří seznam obrázků
-\listoftables						% Vytvoří seznam tabulek
 
 %%%%%%%%%%%%% PŘÍLOHY - APPENDIX 	
 \begin{appendices}
@@ -340,7 +354,157 @@ Soucet: 52.4415
     	%\eitem{Vlastní program}
     	%\eitem{Dokumentace}
     	%\eitem{Testovací data}
-	\chapter{Kód programu Raspberry Pi Pico}  
+\chapter{Kód programu Arduina}
+\begin{lstlisting}[title={}, caption={}, label={}, basicstyle=\footnotesize\ttfamily, inputencoding=utf8]
+#include <Servo.h> // Knihovna pro ovladani ESC pomoci PWM signalu
+
+String data = ""; // Retezec pro ukladani prijatych dat pres Bluetooth
+Servo ESC1;     // Vytvoreni objektu servo pro rizeni ESC motoru 1
+Servo ESC2;
+Servo ESC3;
+Servo ESC4;
+int power;      // Promenna pro ukladani vykonu motoru (0-100 %)
+int escValue;   // Promenna pro prepocet vykonu na hodnotu pro ESC (0-180)
+const int bluActive = 2; // Pin pro kontrolu stavu pripojeni Bluetooth modulu HC-05 (STATE pin)
+
+void processCommand() {
+// Zpracovani prikazu zacinajicich "p:"
+if (data.startsWith("p:")) {
+	String value = data.substring(2); // Extrahovani hodnoty po "p:"
+	int number = value.toInt();       // Prevedeni na cele cislo
+
+	Serial.print("Zpracovavam prikaz: p:");
+	Serial.println(number);
+
+	// Zvyseni vykonu motoru
+	if (number == 1) {
+	if (power <= 95) {
+		power += 5;
+		Serial.print("Vykon: ");
+		Serial.println(power);
+	} else {
+		power = 100;
+	}
+
+	// Rotace doleva p:2 (zatim neimplementovano)
+	} else if (number == 2) {
+	Serial.println("Akce pro p:2");
+
+	// Snizeni vykonu motoru
+	} else if (number == 3) {
+	if (power >= 5) {
+		power -= 5;
+		Serial.print("Vykon: ");
+		Serial.println(power);
+	} else {
+		power = 0;
+	}
+
+	// Rotace doprava p:4 (zatim neimplementovano)
+	} else if (number == 4) {
+	Serial.println("Akce pro p:4");
+
+	} else {
+	Serial.println("Neznamy prikaz po p:");
+	}
+}
+
+// Zpracovani prikazu zacinajicich "b:"
+else if (data.startsWith("b:")) {
+	String value = data.substring(2); // Extrahovani hodnoty po "b:"
+	int number = value.toInt();       // Prevedeni na cele cislo
+
+	Serial.print("Zpracovavam prikaz: b:");
+	Serial.println(number);
+
+	// Zastaveni vsech motoru
+	if (number == 0) {
+	Serial.println("Tlacitko b0 stisknuto");
+	power = 0;
+	// Neimplementovana funkcionalita druheho tlacitka
+	} else if (number == 1) {
+	Serial.println("Tlacitko b1 stisknuto");
+	} else {
+	Serial.println("Neznamy prikaz b:");
+	}
+}
+
+// Zpracovani prikazu zacinajicich "m:"
+// Naklon dopredu, do zadu a dostran (zatim neimplementovano)
+else if (data.startsWith("m:")) {
+	int xIndex = data.indexOf('X'); // Najiti pozice 'X'
+	int yIndex = data.indexOf('Y'); // Najiti pozice 'Y'
+
+	if (xIndex != -1 && yIndex != -1) { // Overeni, ze obe hodnoty existuji
+	String xValue = data.substring(xIndex + 1, yIndex); // Extrahovani hodnoty X
+	String yValue = data.substring(yIndex + 1);         // Extrahovani hodnoty Y
+
+	int x = xValue.toInt(); // Prevedeni hodnoty X na cele cislo
+	int y = yValue.toInt(); // Prevedeni hodnoty Y na cele cislo
+
+	Serial.print("X: ");
+	Serial.println(x);
+	Serial.print("Y: ");
+	Serial.println(y);
+
+	Serial.println("Zpracovavam prikaz m:...");
+	} else {
+	Serial.println("Neplatny format prikazu m:");
+	}
+}
+
+// Ignorovani zprav, ktere nezacinaji "p:", "b:", nebo "m:"
+else {
+	Serial.println("Zprava ignorovana (neznamy format)");
+}
+
+// Vymazani datoveho retezce pro dalsi zpravy
+data = "";
+}
+
+void setup() {
+Serial.begin(9600); // Spusteni seriove komunikace
+Serial.println("Pripraveno na prijem dat pres Bluetooth...");
+
+// Pripojeni ESC motoru na piny 4-7
+ESC1.attach(4, 1000, 2000); // (pin, min sirka pulzu, max sirka pulzu v mikrosekundach)
+ESC2.attach(5, 1000, 2000);
+ESC3.attach(6, 1000, 2000);
+ESC4.attach(7, 1000, 2000);
+
+power = 0; // Vychozi vykon motoru
+pinMode(bluActive, INPUT); // Nastaveni pinu pro cteni stavu Bluetooth pripojeni
+}
+
+void loop() {
+// Kontrola, zda je k dispozici data ze seriove komunikace
+if (Serial.available() > 0) {
+	char incomingChar = Serial.read(); // Precteni znaku z Bluetooth
+
+	if (incomingChar == '\n') { // Kontrola konce zpravy (novy radek)
+	Serial.print("Prijata zprava: ");
+	Serial.println(data); // Vypsani prijate zpravy
+	processCommand(); // Zpracovani prijateho prikazu
+	} else {
+	data += incomingChar; // Pridani znaku do retezce zpravy
+	}
+}
+
+// Kontrola stavu Bluetooth pripojeni
+int connectionStatus = digitalRead(bluActive); // Cteni pinu STATE z HC-05
+if (connectionStatus == LOW) { // Pokud je stav LOW, Bluetooth je odpojeno
+	power = 0; // Reset vykonu motoru na vychozi hodnotu
+	Serial.println("Bluetooth odpojeno!");
+}
+
+// Prevod vykonu (0-100) na hodnotu (0-180) pro ESC motory
+escValue = map(power, 0, 100, 0, 180); 
+ESC1.write(escValue); // Nastaveni vykonu pro motor 1
+ESC2.write(escValue);
+ESC3.write(escValue);
+ESC4.write(escValue);
+}	
+\end{lstlisting}  
 \end{appendices}
 %%%%%%%%%%%%%%%
 \end{document}
