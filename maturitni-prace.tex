@@ -6,6 +6,8 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{listingsutf8}
 \usepackage{float}
+\usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage{MP}
 \setlength{\parindent}{15pt} % Nastaví odsazení prvního řádku odstavce na 15pt
 						  % Import stylu maturitní práce
@@ -106,7 +108,7 @@ Zařazení na základě způsobu použití:
 Tato skupina zařízení byla po dlouhou dobu spojována především s vojenským průmyslem. V současnosti však díky široké škále aplikací nacházejí stále větší uplatnění i v civilních oblastech jako je průmysl, zemědělství nebo vědecký výzkum. Díky klesajícím cenám se osobní kvadrokoptéry stávají stále populárnějšími také pro rekreační účely. \cite{mainbook} \cite{whatisadrone}\\
 
 \section[Bezpilotní pozemní vozidla]{Bezpilotní pozemní vozidla}
-Jedná se o pozemní vozidla bez potřebné fyzické přítomnosti člověka. Ve srovnání se vzdušnými bezpilotními drony jsou mnohem jednodušší na konstrukci. Tato vlastnost přispívá k jejich širokému využití napříč různými sektory. Lze je nalézt například v zemědělství jako samosklízecí traktory, v oblasti samořídících dopravních prostředků, v těžebním průmyslu, v automatizovaných skladech s roboty pro transport zboží nebo v úklidovém sektoru, kde se využívají jako autonomní vysavače. Své uplatnění nacházejí také ve vojenském sektoru. \cite{mainbook}
+Jedná se o pozemní vozidla bez potřebné fyzické přítomnosti člověka. Ve srovnání se vzdušnými bezpilotními drony jsou mnohem jednodušší na konstrukci. Tato vlastnost přispívá k jejich širokému využití napříč různými sektory. Lze je nalézt například v zemědělství jako samosklízecí traktory, v oblasti samořídicích dopravních prostředků, v těžebním průmyslu, v automatizovaných skladech s roboty pro transport zboží nebo v úklidovém sektoru, kde se využívají jako autonomní vysavače. Své uplatnění nacházejí také ve vojenském sektoru. \cite{mainbook}
 
 \section[Hladinová plavidla bez posádky]{Hladinová plavidla bez posádky}
 Plavidla pohybující se po mořské nebo sladkovodní hladině. Často jsou využívána pro těžební operace na moři, vědecký výzkum či monitorování vodních ekosystémů. Významné je také jejich vojenské využití. Tato zařízení používají pro komunikaci obdobné technologie jako bezpilotní letadla. \cite{mainbook}
@@ -120,16 +122,23 @@ Vesmír představuje ideální prostředí pro využití dronů. Jedná se o mí
 Využití všech těchto typů dronů má společnou vlastnost. Jejich využití je na místech, kde lze drahou pracovní sílu člověka nahradit automatickým zařízením nebo místech, které jsou příliš riskantní pro přítomnost člověka. Jejich nasazení se neustále rozšiřuje a lze předpokládat, že v budoucnu bude jejich význam dále narůstat.
 
 \chapter[Anatomie multikoptéry]{Anatomie multikoptéry}
-Každá multikoptéra, ať už profesionálně vyrobená nebo sestavená v domácích podmínkách, se liší svým konstrukčním hardwarem. Nicméně většinu těchto zařízení spojuje použití podobných klíčových komponent. Tato kapitola se zaměřuje na podrobný popis nejběžnějších součástek, které zároveň byly využity při konstrukci kvadrokoptéry v praktické části práce.
+Každá multikoptéra, ať už profesionálně vyrobená nebo sestavená v domácích podmínkách, se liší svým konstrukčním hardwarem. Většinu těchto zařízení však spojuje použití podobných klíčových komponent. Tato kapitola se zaměřuje na podrobný popis nejběžnějších součástek, které zároveň byly využity při konstrukci v praktické části práce.
 
 \section{Rám}
-Rám dronu tvoří základní konstrukční prvek, který drží všechny komponenty pohromadě. Typ rámu použitý u dronu má zásadní vliv na jeho celkové vlastnosti. Klíčovým aspektem při výběru a návrhu rámu je nalezení optimálního poměru mezi hmotností, velikostí a pevností, aby konstrukce byla co nejvíce odolná vůči nárazům a pádům, zároveň však nezvyšovala zbytečně hmotnost zařízení. Tento vyvážený design hraje významnou roli ve stabilitě, ovladatelnosti a životnosti dronu.
+Rám dronu tvoří základní konstrukční prvek, který drží všechny komponenty pohromadě. Typ rámu použitý u dronu má zásadní vliv na jeho celkové vlastnosti. Klíčovým aspektem při výběru a návrhu rámu je nalezení optimálního poměru mezi hmotností, velikostí a pevností. Je důležité, aby konstrukce byla co nejvíce odolná vůči nárazům a pádům, zároveň však nezvyšovala zbytečně hmotnost zařízení. Tento vyvážený design hraje významnou roli ve stabilitě, ovladatelnosti a životnosti dronu.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\linewidth]{ram.jpg}
+	\caption{Rám vyrobený z plastu a hliníku \cite{mainbook}}
+	\label{fig:ram.jpg}
+  \end{figure}
 
 \subsection{Tvar}
-První klíčovou vlastností rámu, na kterou je třeba se zaměřit, je jeho tvar. Konstrukce rámu musí odpovídat počtu vrtulí, což vyžaduje adekvátní počet ramen. Například trikoptéry disponují třemi rameny, hexakoptéry šesti, zatímco nejběžnější kvadrokoptéry mají čtyři ramena.Důležitým konstrukčním aspektem je také úhel mezi jednotlivými rameny, který ovlivňuje nejen stabilitu a letové vlastnosti dronu, ale také případné zorné pole připevněné kamery.
+První klíčovou vlastností rámu je tvar. Konstrukce rámu musí odpovídat počtu vrtulí, což vyžaduje adekvátní počet ramen. Například trikoptéry disponují třemi rameny, hexakoptéry šesti, zatímco nejběžnější kvadrokoptéry mají čtyři ramena. Důležitým konstrukčním aspektem je také úhel mezi jednotlivými rameny, který ovlivňuje nejen stabilitu a letové vlastnosti dronu, ale také případné zorné pole připevněné kamery.
 
 \subsection{Materiál}
-Výběr materiálu rámu výrazně ovlivňuje dvě klíčové vlastnosti dronu: hmotnost a odolnost. Existuje široká škála materiálů vhodných pro konstrukci rámu. Základním kritériem je dostatečná pevnost materiálu, která umožňuje jeho použití jako nosné struktury. Některé materiály poskytují výrazné výhody, díky nimž jsou preferovány.\\
+Výběr materiálu rámu výrazně ovlivňuje dvě klíčové vlastnosti dronu: hmotnost a odolnost. Existuje široká škála materiálů vhodných pro konstrukci rámu.\\
 
 Nejčastěji používané materiály zahrnují:
 \begin{itemize}
@@ -141,118 +150,188 @@ Nejčastěji používané materiály zahrnují:
 \end{itemize}
 
 \subsection{Velikost}
-V neposlední řadě je potřeba zvolit správnou velikost dronu.  Obecně platí, že s rostoucí velikostí dronu se zvyšuje jeho hmotnost, ale zároveň i stabilita. Volba optimální velikosti závisí na požadovaných letových vlastnostech a plánovaném zatížení dronu. \cite{mainbook} \cite{dojo} \cite{ultimateguide}
+V neposlední řadě je potřeba zvolit správnou velikost dronu. Obecně platí, že s rostoucí velikostí se zvyšuje jak jeho hmotnost, tak zároveň i jeho stabilita. Volba optimální velikosti závisí na požadovaných letových vlastnostech a plánovaném zatížení dronu. \cite{mainbook} \cite{dojo} \cite{ultimateguide}
 
 \section{Motory}
-Existuje mnoho různých variant ze kterých vybírat. Každá se však svým provedením liší.\\
-Motor se skládá ze dvou částí, rotoru a statoru. Rotor je ta část motoru, která při používání rotoru točí a stator je ta část , která vždy stojí na jednom místě.
-
+Motor se skládá ze dvou částí, rotoru a statoru. Rotor je ta část motoru, která se při běhu točí a stator je ta část, která stojí na místě.
 
 \subsection{Inrunner a outrunner}
-Motory lze rozdělit do dvou podkategorií: inrunner a outrunner, přičemž klíčový rozdíl spočívá v uspořádání rotoru a statoru.\\
+Motory lze rozdělit do dvou podkategorií: inrunner a outrunner, přičemž klíčový rozdíl spočívá v umístění rotoru a statoru.\\
 \textbf{Inrunner motory} mají rotor uvnitř statoru, otáčí se pouze hřídel motoru a vnější plášť zůstává statický. Tyto motory se vyznačují vysokými otáčkami (vyšší kV) a nízkým točivým momentem, což je ideální pro situace vyžadující rychlost.\\
-\textbf{Outrunner motory} mají rotor na vnější straně statoru, takže se otáčí celý plášť motoru. Tento design poskytuje nižší otáčky (nižší kV), ale vyšší točivý moment, což je ideální pro přímý pohon bez převodovky, například u vrtulí dronů nebo elektrokol. 
+\textbf{Outrunner motory} mají rotor na vnější straně statoru, takže se otáčí celý plášť motoru. Tento design poskytuje nižší otáčky (nižší kV), ale vyšší točivý moment, což je ideální pro pohon vrtulí dronů nebo elektrokol. 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{inrunner-outrunner.png}
+	\caption{Rozdíl mezi inrunner a outrunner motorem \cite{rozum}}
+	\label{fig:inrunner-outrunner.png}
+  \end{figure}
 
 \subsection{Kartáčové a bezkartáčové motory}
-Jedná se o dvě hlavní konstrukce motorů, lišící se způsobem přenosu energie a účinností.\\
-\textbf{Kartáčové motory} používají mechanické kartáče k přenosu elektrické energie na rotor, kde jsou umístěny cívky. Stator je tvořen permanentními magnety. Proud procházející cívkami vytvoří magnetické pole, které odpuzuje celý rotor tak, aby generoval točivý moment. Tento design je jednoduchý a levný, ale méně účinný kvůli tření kartáčů, což způsobuje vyšší opotřebení a ztráty energie.\\
-\textbf{Bezkartáčové motory} mají cívky na statoru a rotor tvořený permanentními magnety. Energie je přenášena elektronicky pomocí regulátoru otáček (ESC), který ve správný čas mění polaritu cívky tak, aby odpuzovala permanentní magnety na rotoru. Tento způsob eliminuje tření kartáčů. Bezkartáčové motory jsou účinnější, spolehlivější a vhodné pro aplikace vyžadující vysoký výkon a přesnost, například drony nebo moderní elektromobily.
+Jedná se o dva hlavní druhy motorů, lišící se způsobem přenosu energie a účinností.\\
+\textbf{Kartáčové motory} (brushed motors) používají mechanické kartáče k přenosu elektrické energie na rotor, kde jsou umístěny cívky. Stator je tvořen permanentními magnety. Proud procházející cívkami rotoru vytvoří magnetické pole odpuzované magnety na statoru tak, že motor generuje točivý moment. Tento design je jednoduchý a levný, ale méně účinný kvůli tření kartáčů, což způsobuje vyšší opotřebení a ztráty energie.\\
+\textbf{Bezkartáčové motory} (brushless motors) mají cívky na statoru a rotor tvořený permanentními magnety. Energie je přenášena elektronicky pomocí regulátorů otáček (ESC), které ve správný čas mění polaritu cívek tak, aby odpuzovaly permanentní magnety na rotoru. Tento způsob eliminuje tření kartáčů. Bezkartáčové motory jsou účinnější, spolehlivější a vhodné pro aplikace vyžadující vysoký výkon a přesnost. Často se využívají například u dronů nebo elektromobilů.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{brushed-brushless.png}
+	\caption{Rozdíl mezi kartáčovým a bezkartáčovým motorem \cite{rozum}}
+	\label{fig:brushed-brushless.png}
+  \end{figure}
 
 \subsection{AC a DC}
-V neposlední řadě je klíčové správné spárování baterie s motorem. Baterie obvykle využívají stejnosměrný proud (DC), zatímco bezkartáčové motory povětšinou vyžadují střídavý proud (AC). V takových případech je nezbytné zvolit vhodný regulátor otáček (ESC), který zajistí správnou transformaci a distribuci elektrického proudu odpovídající požadavkům motoru.  Kartáčové motory povětšinou ke svojí funkci vyžadují stejnosměrný proud. \cite{mainbook} \cite{dojo} \cite{ultimateguide} \cite{motors}
+Klíčové je také správné spárování baterie s motorem. Baterie obvykle využívají stejnosměrný proud (DC), zatímco bezkartáčové motory střídavý proud (AC). V takových případech je nezbytné zvolit vhodný regulátor otáček (ESC), který zajistí správnou transformaci a distribuci elektrického proudu motorům. Kartáčové motory ke svojí funkci vyžadují stejnosměrný proud. \cite{mainbook} \cite{dojo} \cite{ultimateguide} \cite{motors}
 
 \section{Vrtule}
 
-Vrtule fungují podobně jako šroub. Jejich lopatky při otáčení “zavrtávají” do vzduchu a vytvářejí sílu, která pohání objekt vpřed nebo vzad.\\
-Existují dva hlavní typy vrtulí: tažné (regular propellers) a tlačné (pusher propellers)\\
-Tažné vrtule generují tah směrem dopředu a jsou navrženy tak, aby se otáčely po směru hodinových ručiček (CW). Naproti tomu tlačné vrtule vytvářejí sílu tlačící systém vpřed a otáčejí se proti směru hodinových ručiček (CCW). Kombinace těchto dvou typů vrtulí zajišťuje vyvážený, stabilní a snadno ovladatelný systém. \cite{mainbook} \cite{dojo}
+Vrtule fungují podobně jako šroub. Jejich lopatky se při otáčení “zavrtávají” do vzduchu a vytvářejí tak sílu, která pohání objekt vpřed.\\
+Používají se primárně dvě varianty vrtulí, které se liší směrem otáčení. První varianta se otáčí po směru hodinových ručiček (CW), zatímco druhá proti směru hodinových ručiček (CCW). Kombinace obou varian vrtulí napomáhá k vyvážení a stabilizaci zařízení. \cite{mainbook} \cite{dojo}
 
-\section{Flight controller}
+\section{Řídicí jednotka}
 
-Často se označuje jako jeho „mozek“ celého dronu. Hlavní funkcí flight controlleru je automatické vyvažování dronu. Vyrovnává změny v pohybu, naklánění a rotaci, aby dron zůstal stabilní i v obtížných podmínkách, jako je vítr nebo nerovnoměrné rozložení hmotnosti. Díky tomu se pilot nemusí soustředit na neustálé drobné korekce, což usnadňuje manévrování.\\
+Řídicí jednotku (flight controller) lze přirovnat k „mozku“ celého dronu. Její hlavní funkcí je ovládání a automatické vyvažování dronu. Zajišťuje, aby dron zůstal stabilní i v obtížných podmínkách, jako je vítr nebo nerovnoměrné rozložení hmotnosti. Díky tomu se pilot nemusí soustředit na neustálé drobné korekce, což usnadňuje manévrování.\\
 
-Nejběžnější senzory součástí flight controlleru:
+Nejběžnější senzory součástí řídicí jednotky:
 \begin{itemize}
 	\item Akcelerometr -  Měří zrychlení ve třech osách (x, y, z) a pomáhá určit směr gravitace, což je nezbytné pro vyhodnocení naklonění dronu.
 	\item Gyroskop - Sleduje rotaci a úhlové změny dronu, což umožňuje rychlé a přesné úpravy pro udržení stability.
 \end{itemize}
 
-Flight controller přijímá data ze senzorů a na jejich základě upravuje výkon jednotlivých motorů. \cite{mainbook}
+Řídicí jednotka přijímá data ze senzorů a na jejich základě upravuje výkon jednotlivých motorů. \cite{mainbook}
 
 \section{Komunikační systém}
-Komunikační systém dronu slouží k přenosu informací mezi pilotem a samotným zařízením. Základem je RC ovladač, který se skládá z vysílače (drženého pilotem) a přijímače umístěného na dronu. Přijímač je přímo propojen s řídicí jednotkou (Flight Controllerem), která interpretuje přijaté signály a převádí je na odpovídající povely pro motory a další komponenty.\\
-Pro základní ovládání jsou využívány minimálně čtyři komunikační kanály, které odpovídají následujícím funkcím: náklon do stran (Roll), náklon vpřed a vzad (Pitch), otáčení kolem svislé osy (Yaw) a regulace výkonu motorů (Throttle). Alternativně může být pro komunikaci využita technologie Bluetooth, která umožňuje ovládání dronu prostřednictvím mobilních zařízení.
+Komunikační systém dronu slouží k přenosu informací mezi pilotem a samotným zařízením. Základem je RC (Radio Control) ovladač, který se skládá z vysílače (drženého pilotem) a přijímače umístěného na dronu. Přijímač je přímo propojen s řídicí jednotkou (flight controllerem), která interpretuje přijaté signály a převádí je na odpovídající povely pro motory a další komponenty.\\
+Pro základní ovládání jsou využívány minimálně čtyři komunikační kanály, které odpovídají následujícím funkcím: náklon do stran (roll), náklon vpřed a vzad (pitch), otáčení kolem svislé osy (yaw) a regulace výkonu motorů (throttle). Alternativně může být pro komunikaci využita technologie Bluetooth, která mimo jiné umožňuje ovládání dronu prostřednictvím mobilních zařízení.
 
 \section{Baterie}
 
-Baterie je zdrojem energie pro celý dron. Nejčastěji používané jsou lithiumpolymerové (LiPo) a lithium-iontové (Li-ion) baterie díky jejich vysoké energetické hustotě, nízké hmotnosti a schopnosti dodávat vysoký proud. Alternativně se u některých systémů využívají nikl-metalhydridové (NiMH) baterie. NiMH baterie jsou odolné vůči hlubokému vybití a mechanickému namáhání. Při vysokém zatížení však poskytují nižší výkon ve srovnání s LiPo bateriemi.\\
+Baterie je zdrojem energie pro celý dron. Nejčastěji používané jsou lithiumpolymerové (LiPo) a lithium-iontové (Li-ion) baterie, díky jejich vysoké energetické hustotě, nízké hmotnosti a schopnosti dodávat vysoký proud. Alternativně se u některých systémů využívají nikl-metalhydridové (NiMH) baterie. NiMH baterie jsou odolné vůči hlubokému vybití a mechanickému namáhání. Při vysokém zatížení však poskytují nižší výkon ve srovnání s LiPo bateriemi.\\
 Baterie mohou být zapojeny sériově nebo paralelně v závislosti na požadovaném výkonu a kapacitě. Sériové zapojení zvyšuje výsledné napětí při zachování stejné kapacity, což umožňuje vyšší výkon motorů. Paralelní zapojení naopak zvyšuje kapacitu při zachování stejného napětí, což prodlužuje dobu letu dronu.\\
-Pro drony jsou ideální baterie s dostatečnou kapacitou (mAh), odpovídajícím počtem článků (S) a vysokým C-ratingem, který udává maximální proudový odběr. Tyto parametry je nutné sladit s výkonovými požadavky dronu. 
+Pro drony jsou ideální baterie s dostatečnou kapacitou (mAh), odpovídajícím počtem článků (S) a vysokým C-ratingem, který udává maximální proudový odběr. Tyto parametry je nutné sladit s výkonovými požadavky dronu. \cite{mainbook}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{battery.jpg}
+	\caption{LiPo baterie \cite{dojo}}
+	\label{fig:battery.jpg}
+\end{figure}
 
 \chapter{Fyzika letu dronu}
-K zajištění letu kvadrokoptéry je nezbytné, aby byla schopna vykonávat tři základní typy pohybu: vertikální pohyb, laterální pohyb a rotační pohyb. Na základě třetího Newtonova zákona lze každý z těchto pohybů realizovat prostřednictvím čtyř rotorů kvadrokoptéry.
+K zajištění letu kvadrokoptéry je nezbytné, aby byla schopna vykonávat tři základní typy pohybu: vertikální pohyb, laterální pohyb a rotační pohyb. Každý z těchto pohybů lze realizovat prostřednictvím čtyř rotorů kvadrokoptéry.
 
 \section{Vertikální pohyb}
-Newtonův třetí zákon pohybu stanovuje, že každé akci odpovídá stejně velká, avšak opačně orientovaná reakce.\\
-V případě kvadrokoptéry dochází při rotaci jejích rotorů k vytlačování vzduchu směrem dolů, což představuje akční sílu. Na základě uvedeného zákona musí existovat odpovídající reakční síla, která působí směrem vzhůru na kvadrokoptéru. Jakmile velikost této vztlakové síly převýší gravitační sílu působící na kvadrokoptéru, dojde k jejímu vertikálnímu pohybu směrem vzhůru.
+Newtonův třetí zákon pohybu stanovuje, že každé akci odpovídá stejně velká, avšak opačně orientovaná, reakce. V případě kvadrokoptéry dochází při rotaci jejích rotorů k vytlačování vzduchu směrem dolů, což představuje akční sílu. Na základě uvedeného zákona musí existovat odpovídající reakční síla, která působí směrem vzhůru na kvadrokoptéru. Jakmile velikost této vztlakové síly převýší gravitační sílu působící na kvadrokoptéru, dojde k jejímu vertikálnímu pohybu směrem vzhůru.
 
 \section{Laterální pohyb}
 Pokud vztlaková síla působí kolmo vzhůru, kvadrokoptéra se pohybuje vertikálně. Pokud však působí pod úhlem, dochází i k laterálnímu pohybu. Tento jev nastává v důsledku rozkladu vztlakové síly, která působí na dron jak ve vertikálním, tak v horizontálním směru. To způsobuje pohyb kvadrokoptéry do stran nebo ve směru dopředu a dozadu.\\
 Laterální pohyb je realizován změnou rychlosti otáčení rotorů. Zvýšení rychlosti dvou rotorů na jedné straně kvadrokoptéry vede k nerovnoměrnému rozložení vztlakové síly. Strana s rychleji rotujícími rotory generuje větší vztlak než opačná strana, což způsobí, že se nakloněná kvadrokoptéra pohybuje směrem k oblasti s nižším vztlakem.
 
+\begin{figure}[H]
+    \begin{subfigure}{0.45\linewidth}
+        \centering
+        \includegraphics[width=0.6\linewidth]{vertical.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[width=0.6\linewidth]{lateral.png}
+    \end{subfigure}
+    \caption{Vertikální a laterální pohyb dronu \cite{nasa}}
+    \label{fig:batteries}
+\end{figure}
+
 \section{Rotační pohyb}
-Posledním typem pohybu kvadrokoptéry je rotace, která je výsledkem působení točivého momentu. Tento moment vzniká v důsledku otáčení rotorů, přičemž podle třetího Newtonova zákona se současně generuje síla stejné velikosti, avšak opačného směru.\\
+Posledním typem pohybu kvadrokoptéry je rotace, která je výsledkem působení točivého momentu. Tento moment vzniká v důsledku otáčení rotorů, přičemž podle třetího Newtonova zákona se současně generuje síla opačného směru a stejné velikosti.\\
 Točivý moment ovlivňuje kvadrokoptéru při rotaci rotorů, neboť každý jednotlivý rotor generuje svůj vlastní moment síly. Celkový točivý moment působící na kvadrokoptéru je součtem momentů všech čtyř rotorů. Pro eliminaci tohoto momentu se využívá konstrukční řešení, při němž se dva rotory otáčejí ve směru hodinových ručiček a dva v protisměru. Tyto momenty se vzájemně vyruší, čímž se eliminuje nekontrolovaná rotace kvadrokoptéry.\\
-Točivý moment lze však také využít k řízené rotaci kvadrokoptéry. Pokud se například rotory 1 a 3 otáčejí rychleji než rotory 2 a 4, výsledný moment síly proti směru hodinových ručiček převáží nad momentem síly ve směru hodinových ručiček, což způsobí rotaci kvadrokoptéry proti směru hodinových ručiček. Naopak, pokud se rotory 2 a 4 otáčejí rychleji než rotory 1 a 3, kvadrokoptéra se začne otáčet ve směru hodinových ručiček.\\
-Pro správné fungování je potřeba mít dva druhy vrtulí tak, aby všechny tlačily vzduch směrem k zemi. Jak je patrné na obrázku 9, jeden typ rotoru má levý okraj listu výše v přední části, zatímco druhý typ má výše pravý okraj.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{rotational.png}
+	\caption{Vyrušení točivých momentů rotorů \cite{nasa}}
+	\label{fig:rotational.png}
+\end{figure}
+
+Točivý moment lze však také využít k řízené rotaci kvadrokoptéry. Pokud se například rotory 1 a 3 otáčejí rychleji než rotory 2 a 4, výsledný moment síly proti směru hodinových ručiček převáží nad momentem síly ve směru hodinových ručiček, což způsobí rotaci kvadrokoptéry proti směru hodinových ručiček. Naopak, pokud se rotory 2 a 4 otáčejí rychleji než rotory 1 a 3, kvadrokoptéra se začne otáčet ve směru hodinových ručiček. \cite{nasa}
 %%%%%%%%%%%%%% PRAKTICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
 \part{Konstrukce kvadrokoptéry} % název praktické části (nenechávejte název Praktická část)
 
 \chapter{Součástky}
-Zkonstruovaný dron se skládá, bez kterých by jeho realizace byla nemožná. V této kapitole si ukážeme konkrétní použité zařízení a vysvětlíme si jejich specifikace. Tělo dronu se skládá z rámu, motorů, ESC, rozvodné desky napájení a baterie. Flight controller se skládá z Arduina, Bluetooth modulu, modulu gyroskopu-akcelerometru, nepájivého pole. Většina těchto součástek byla zakoupena na online platformě Aliexpress.
+V této kapitole si ukážeme konkrétní použité součástky a vysvětlíme si jejich specifikace. Celý dron se skládá z rámu, motorů, ESC, rozvodné desky napájení a baterie. Řídicí jednotka se skládá z Arduina, nepájivého pole, Bluetooth modulu, modulu gyroskopu a akcelerometru. Většina těchto součástek byla zakoupena na internetovém obchodu Aliexpress.
 
 \section{Rám}
-Při konstrukci dronu byl zvolen 3D tištěný rám pro jeho nízkou hmotnost a dostatečnou mechanickou odolnost. Využití 3D tisku umožnilo výrobu rámu s přesnými rozměry a vlastnostmi dle individuálních požadavků. Pro samotný tisk byl použit standardní materiál PLA, který se vyznačuje snadnou tisknutelností a dostatečnou pevností pro danou aplikaci.\\
-Model byl vytvořen jako upravená varianta existujícího designu dostupného na platformě Thingiverse (https://www.thingiverse.com/thing:234867). Tato stránka poskytuje veškeré potřebné modely pro 3D tisk, které jsou volně dostupné ke stažení. Díky této otevřené databázi bylo možné provést úpravy a přizpůsobit konstrukci dronu specifickým požadavkům.\\
-Do spojů vytištěného rámu byly integrovány šrouby a matice, které zajišťují pevné spojení jednotlivých komponent. Tato konstrukční metoda zvyšuje mechanickou stabilitu rámu a umožňuje snadnou demontáž či výměnu dílů v případě potřeby.
+Při konstrukci dronu byl zvolen 3D tištěný rám pro jeho nízkou hmotnost a dostatečnou mechanickou odolnost. Využití 3D tisku umožnilo výrobu rámu s přesnými rozměry a vlastnostmi dle individuálních požadavků. Pro samotný tisk byl použit standardní materiál PLA, který se vyznačuje snadnou tisknutelností a přiměřenou pevností.\\
+Model rámu vznikl úpravou existujícího designu z platformy Thingiverse \cite{ram}. Tato stránka poskytuje veškeré potřebné modely pro 3D tisk, které jsou volně dostupné ke stažení a úpravě.\\
+Jednotlivé části vytištěného rámu byly smontovány pomocí šroubů a matic.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\linewidth]{ram2.jpg}
+	\caption{Rameno rámu kvadrokoptéry}
+	\label{fig:ram2.jpg}
+\end{figure}
 
 \section{Motory}
-Jako pohonná jednotka byl zvolen bezkartáčový motor 2212 920KV, který nabízí optimální rovnováhu mezi výkonem a spotřebou energie. U dronů se obecně preferují outrunner motory, které jsou díky své konstrukci efektivnější, poskytují vyšší točivý moment a lepší chladicí vlastnosti, což je zásadní pro stabilní a efektivní let.\\
-Hodnota KV udává počet otáček motoru za minutu (RPM) na jeden volt napájecího napětí bez zatížení. To znamená, že například motor 2212 920KV při napětí 1V dosáhne přibližně 920 ot./min, při 2V to bude 1840 ot./min atd.\\
-Druhé uvedené číslo v označení motoru udává jeho rozměry. První dvě číslice (22) v označení motoru 2212 udávají průměr statoru v milimetrech, zatímco druhé dvě číslice (12) označují výšku statoru v milimetrech.\\
+Jako pohonná jednotka byl zvolen bezkartáčový motor 2212 920KV, který nabízí optimální rovnováhu mezi výkonem a spotřebou energie. U dronů se obecně preferují outrunner motory, které jsou díky své konstrukci efektivnější, poskytují vyšší točivý moment a lepší chladicí vlastnosti.\\
+Hodnota KV udává počet otáček motoru za minutu (RPM) na jeden volt napájecího napětí. To znamená, že například motor 2212 920KV při napětí 1V dosáhne přibližně 920 ot./min, při 2V to bude 1840 ot./min atd.\\
+První uvedené číslo v označení motoru (2212) udává jeho rozměry. První dvě číslice (22) udávají průměr statoru a druhé dvě číslice (12) označují výšku statoru v milimetrech.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{motor.jpg}
+	\caption{CCW bezkartáčový motor 2212 920KV}
+	\label{fig:motor.jpg}
+\end{figure}
 V neposlední řadě je důležité dbát na správnou orientaci závitu tak, aby se utahování vrtule vždy provádělo proti směru otáčení motoru. Toto řešení je klíčové z hlediska bezpečnosti, protože zabraňuje uvolnění vrtule při prudkém zpomalení nebo zastavení motoru. Pro stabilizaci letu je nutné, aby byly použity dva motory s pravotočivou rotací (CW - Clockwise) a dva s levotočivou rotací (CCW - Counterclockwise).\\
 
 \section{Vrtule}
-Zvolené vrtule nesou označení 1045, kde první dvě číslice označují průměr vrtule v palcích a poslední dvě číslice představují stoupání vrtule v palcích. Stoupání vrtule (propeller pitch) určuje vzdálenost, kterou by vrtule teoreticky urazila v jednom otočení při ideálních podmínkách. Vyšší stoupání znamená větší objem vzduchu přemístěného směrem dolů během rotace, což zvyšuje tah, ale zároveň zvyšuje aerodynamický odpor a zatížení motoru. Princip lze přirovnat ke závitu šroubu, kde stoupání určuje hloubku zavrtání na jednu otáčku. Obdobně u vrtule odpovídá stoupání tomu, jak hluboko se „zavrtává“ do vzduchu.
+Zvolené vrtule nesou označení 1045, kde první dvě číslice označují průměr vrtule v palcích a poslední dvě číslice představují stoupání vrtule v palcích. Stoupání vrtule (propeller pitch) určuje vzdálenost, kterou vrtule urazí při jednom otočení za ideálních podmínek. Vyšší stoupání znamená větší objem vzduchu přemístěného směrem dolů během rotace, což zvyšuje tah, ale zároveň zvyšuje aerodynamický odpor a zatížení motoru. Princip lze přirovnat ke závitu šroubu, kde stoupání určuje hloubku zavrtání za otáčku. Existují dvě varianty vrtulí, podle jejich směru točení (CW a CCW).\\
 
 \section{ESC}
 Brushless motory vyžadují třífázové napájení, což je poměrně složitý proces, který zajišťuje vestavěný mikrořadič v ESC. Z našeho pohledu stačí do ESC přivést napájecí proud a prostřednictvím signálního vodiče mu sdělit, jakou rychlostí se má motor otáčet.\\
 Je důležité zajistit, aby ESC bylo kompatibilní s daným bezkartáčovým motorem. Klíčovými parametry jsou maximální napětí a proud, které ESC zvládne. Pro správnou funkci je také nutné ESC spájet s rozvodnou deskou napájení, která rozvádí napětí z baterie ke všem komponentům.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{esc.jpg}
+	\caption{ESC pro bezkartáčové motory}
+	\label{fig:esc.jpg}
+\end{figure}
 
 \section{Rozvodná deska napájení}
 Rozvodná deska napájení (PDB) slouží k distribuci energie z baterie do všech komponent. Všechny čtyři ESC jsou k této desce připájeny a baterie je k ní připojena přes bezpečný napájecí konektor.
 
 \section{Baterie}
-Zdroj veškeré energie pro dron. V této práci byla vybrána baterie se specifikací LiPo 2200mAh 14.8V 30C 4S1P.\\
-Začněme částí 4S. Bateriový pack je složen z jednotlivých malých bateriových článků. Jeden LiPo článek má vždy 4,2 V, když je plně nabitý, a 3,7 V, když je vybitý. Označení 4S znamená, že čtyři články jsou zapojeny sériově, což znamená, že výsledné napětí baterie se sčítá. Plně nabité napětí celého bateriového packu tedy činí 16,8 V.\\
+Jedná se o zdroj veškeré energie pro dron. V této práci byla vybrána baterie se specifikací LiPo 2200mAh 14.8V 30C 4S1P.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{battery2.jpg}
+	\caption{LiPo baterie 2200mAh 14.8V 30C 4S1P}
+	\label{fig:battery2.jpg}
+\end{figure}
+Začněme částí 4S. Bateriový pack je složen z jednotlivých malých bateriových článků. Jeden LiPo článek má 4,2 V za předpokladu, že je plně nabitý. Označení 4S značí, že čtyři články jsou zapojeny sériově, což znamená, že výsledné napětí baterie se sčítá. Napětí celého, plně nabitého, bateriového packu tedy činí 16,8 V.\\
 Hodnota 2200mAh označuje celkovou kapacitu baterie, což znamená, že při odběru 2,2 A by baterie měla teoreticky vydržet jednu hodinu.\\
 Posledním parametrem je C-rating, který udává maximální proud, který je baterie schopna dodat. Maximální proud lze vypočítat jako C-rating × kapacita v Ah:
-\begin{center}
-    \[
-    30C \times 2.2\text{Ah} = 66\text{A}
-    \]
-\end{center}
-Tato hodnota představuje trvalý vybíjecí proud, který může baterie bezpečně poskytovat. Některé baterie mají také burst rating, což znamená, že krátkodobě mohou dodat ještě vyšší proud, například dvojnásobek této hodnoty.
+\[
+30C \times 2.2\,\text{Ah} = 66\,\text{A}
+\]
+Tato hodnota představuje trvalý vybíjecí proud, který může baterie bezpečně poskytovat. Některé baterie mají také burst rating, kdy krátkodobě mohou dodat ještě vyšší proud, například dvojnásobek této hodnoty.
 
 \section{Arduino}
-Arduino je programovatelný mikrokontrolér umožňující připojení dalších komponent pro specifické aplikace. Pro tento projekt byla zvolena platforma Arduino UNO, a to především díky vysokému počtu připojovacích pinů a jednoduché manipulaci. Arduino zde plní funkci řídicí jednotky letu (flight controlleru), která na základě vstupních údajů získaných prostřednictvím Bluetooth modulu a akcelerometru provádí výpočty potřebné k regulaci motorů. Zařízení nevyžaduje samostatný napájecí zdroj, neboť je napájeno přímo z motorového obvodu.
+Arduino je programovatelný mikrořadič umožňující připojení dalších komponent pro specifické aplikace. Pro tento projekt byla zvolena varianta Arduino UNO, a to především díky vysokému počtu připojovacích pinů a jednoduché manipulaci. Arduino zde plní funkci řídicí jednotky (flight controlleru), která na základě vstupních dat, získaných prostřednictvím Bluetooth modulu a akcelerometru, provádí výpočty potřebné k regulaci motorů. Zařízení nevyžaduje samostatný napájecí zdroj, neboť je napájeno přímo z motorů.
 
 \section{Bluetooth modul}
-Bluetooth modul HC-05 je bezdrátový komunikační modul umožňující obousměrný přenos dat mezi mikrokontrolérem a externím zařízením. Pro tento projekt byl zvolen právě HC-05 díky své kompatibilitě s platformou Arduino UNO a jednoduché implementaci sériové komunikace prostřednictvím protokolu UART. Modul umožňuje bezdrátové ovládání a přenos řídicích signálů mezi uživatelským rozhraním mobilní aplikace a řídicí jednotkou letu. HC-05 pracuje ve frekvenčním pásmu 2,4 GHz s maximálním dosahem přibližně 10–20 metrů, což je pro tento projekt dostačující. Přenosová rychlost modulu může dosahovat až 1 Mb/s, což umožňuje efektivní a spolehlivou komunikaci mezi zařízením a řídicí jednotkou. 
-
+Bluetooth modul HC-05 je bezdrátový komunikační modul umožňující obousměrný přenos dat mezi Arduinem a externím zařízením. Pro tento projekt byl zvolen HC-05, díky své kompatibilitě a jednoduché implementaci sériové komunikace prostřednictvím protokolu UART. Modul umožňuje bezdrátové ovládání a přenos řídicích signálů mezi uživatelským rozhraním mobilní aplikace a řídicí jednotkou letu. HC-05 pracuje ve frekvenčním pásmu 2,4 GHz s maximálním dosahem přibližně 10–20 metrů, což je pro tento projekt dostačující. Přenosová rychlost modulu může dosahovat až 1 Mb/s. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.55\linewidth]{hc-05.png}
+	\caption{Bluetooth modul HC-05}
+	\label{fig:hc-05.png}
+\end{figure}
 \section{Akcelerometr a gyroskop}
-MPU6050 je měřicí jednotka integrující tříosý gyroskop a tříosý akcelerometr do jednoho čipu, což umožňuje komplexní měření pohybu a orientace v prostoru. Pro tento projekt byl zvolen MPU6050 díky jeho vysoké přesnosti, kompaktním rozměrům a kompatibilitě s platformou Arduino UNO prostřednictvím sběrnice I²C. Modul poskytuje klíčová data o náklonu, zrychlení a úhlové rychlosti, která jsou využívána řídicí jednotkou při výpočtu stabilizačních algoritmů a optimalizaci řízení motorů.
+MPU6050 je měřicí jednotka složená ze tříosého gyroskopu a tříosého akcelerometru, což umožňuje komplexní měření pohybu a orientace v prostoru. Pro tento projekt byl zvolen modul MPU6050 díky jeho vysoké přesnosti a kompaktním rozměrům. Modul poskytuje klíčová data o náklonu, zrychlení a úhlové rychlosti, která jsou využívána řídicí jednotkou při výpočtu stabilizačních algoritmů a optimalizaci řízení motorů.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.55\linewidth]{mpu6050.png}
+	\caption{Akcelerometr a gyroskop MPU6050}
+	\label{fig:hc-05.png}
+\end{figure}
 
 \chapter{Průběh Konstrukce}
 Prvním krokem v procesu konstrukce dronu bylo vytvoření jeho rámu pomocí 3D tisku. Po několika neúspěšných pokusech se podařilo úspěšně vytisknout jednotlivé součásti s požadovanou přesností a strukturální pevností. Pro zajištění vyšší soudržnosti konstrukce byly do klíčových částí rámu zataveny kovové závitové vložky, které umožňují pevné uchycení komponent pomocí šroubů. Tyto výztuhy byly umístěny především v centrální části rámu, kde bylo nezbytné pevně připojit ramena ke středu dronu, a na koncích ramen, kde dochází k upevnění motorů s vysokým tahem.\\
