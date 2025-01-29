@@ -334,87 +334,56 @@ MPU6050 je měřicí jednotka složená ze tříosého gyroskopu a tříosého a
 \end{figure}
 
 \chapter{Průběh Konstrukce}
-Prvním krokem v procesu konstrukce dronu bylo vytvoření jeho rámu pomocí 3D tisku. Po několika neúspěšných pokusech se podařilo úspěšně vytisknout jednotlivé součásti s požadovanou přesností a strukturální pevností. Pro zajištění vyšší soudržnosti konstrukce byly do klíčových částí rámu zataveny kovové závitové vložky, které umožňují pevné uchycení komponent pomocí šroubů. Tyto výztuhy byly umístěny především v centrální části rámu, kde bylo nezbytné pevně připojit ramena ke středu dronu, a na koncích ramen, kde dochází k upevnění motorů s vysokým tahem.\\
-Dalším krokem byla instalace a zapojení napájecího systému. Jednotlivé napájecí vodiče motorů byly připájeny k rozvodové desce, která zajišťuje distribuci elektrické energie v celém systému. Stejným způsobem byl k rozvodové desce připojen hlavní napájecí kabel, přes který je k desce připojena baterie. Po dokončení byly motory upevněny na koncích ramen dronu tak, aby jejich směr otáčení odpovídal požadované konfiguraci letového systému.\\
+Prvním krokem při konstrukci dronu bylo vytvoření jeho rámu pomocí 3D tisku. Po několika neúspěšných pokusech se podařilo úspěšně vytisknout jednotlivé součásti s požadovanou přesností a strukturální pevností. Do klíčových částí rámu byly zataveny kovové závitové vložky, které umožňují pevné uchycení komponent pomocí šroubů. Ty byly umístěny především v centrální části rámu, kde bylo nezbytné pevně připojit ramena ke středu rámu a na koncích ramen, kde dochází k upevnění motorů s vysokým tahem.\\
+Dalším krokem byla instalace a zapojení napájecího systému. Jednotlivé napájecí vodiče motorů byly připájeny k rozvodové desce, která zajišťuje distribuci elektrické energie v celém zařízení. Stejným způsobem byl k rozvodové desce připojen hlavní napájecí kabel, přes který je k desce připojena baterie. Po dokončení byly motory rozmístěny na koncích ramen dronu tak, aby jejich směr otáčení odpovídal požadované konfiguraci letového systému.\\
 Motory byly ke konstrukci připevněny pomocí šroubků, přičemž pro dodatečnou stabilizaci byly elektronické regulátory otáček (ESC) zajištěny pomocí instalačních pásků.\\
-Po dokončení mechanické konstrukce dronu následoval klíčový krok, kterým je návrh a implementace řídicí jednotky letu (flight controlleru).
-
-\chapter[Vývoj flight controlleru]{Vývoj flight controlleru}
-%%% v obsahu se objeví jen to co je v hranatých závorkách
-Hlavní řídicí jednotkou flight controlleru je Arduino UNO. Prvním krokem bylo připojení Bluetooth modulu HC-05 a modulu MPU6050, který integruje akcelerometr a gyroskop. Tyto komponenty byly propojeny s Arduinem pomocí vodivých vodičů a nepájivého kontaktního pole, což umožňuje flexibilní zapojení a případné úpravy obvodu.\\
-Samotný řídicí software pro Arduino byl vytvořen v prostředí Arduino IDE, které je speciálně uzpůsobeno pro vývoj aplikací na platformě Arduino. Programovací jazyk použitý v kódu je C++, což umožňuje efektivní práci s hardwarem a implementaci nízkoúrovňových operací nezbytných pro řízení dronu.\\
-Kromě programování řídicí jednotky bylo nutné vyvinout také mobilní aplikaci, která umožňuje ovládání dronu prostřednictvím Bluetooth komunikace. Pro tento účel byla využita aplikace Bluetooth Electronics, která poskytuje širokou škálu přizpůsobitelných tlačítek a předpřipravených ovládacích panelů. Tato aplikace rovněž umožňuje nastavení jednotlivých příkazů odesílaných přes Bluetooth a automaticky zajišťuje propojení mezi mobilním zařízením a Bluetooth modulem dronu.\\
-Profesionální drony jsou vybaveny pokročilým softwarem pro stabilizaci a automatickou korekci polohy. Konstrukčně realizovaný dron však funguje pouze na principu přímého příjmu ovládacích příkazů, přičemž neobsahuje stabilizační algoritmy. Výsledkem je vysoká nestabilita a značná náchylnost k vychýlení během letu. Implementace stabilizačního systému by vyžadovala složité programování, které by významně rozšířilo rozsah této maturitní práce.\\
-Navržený dron je kompletně zhotoven po hardwarové stránce, přičemž zbývající vývoj pro stabilizovaný let se týká implementace softwarového stabilizačního systému v Arduinu.
-
-
-
-\chapter{priklady v latexu}
-text
-Odkaz v závorkách: \parencite[see][page 900]{einstein}\\
-Odkaz: \cite{knuthwebsite}\\
-A odkaz pod čarou: \footcite[see][s. 42]{latexcompanion}\\
-Dobrý den, ahoj, \gls{atd}\\
-Praha, \gls{tj} hlavní město ČR
-text
-
-\begin{figure}
-  \includegraphics[width=\linewidth]{test.jpg}
-  \caption{Testovací}
-  \label{fig:test}
+Po dokončení mechanické konstrukce dronu následoval klíčový krok, kterým je návrh a implementace řídicí jednotky (flight controlleru).
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\linewidth]{zakladni-konstrukce.jpg}
+	\caption{Základní konstrukce rámu s motory a ESC}
+	\label{fig:zakladni-konstrukce.jpg}
 \end{figure}
-Obrázek \ref{fig:test} ukazuje Shangai z Pixabay.\\
-Tabulka \ref{tab:test2} ukazuje hádejte, co.
-	
-\lipsum[3]
 
-
-Výpis programu \nameref{lst:hello_world}  naleznete ve výpise \ref{lst:hello_world}.
-
-\begin{lstlisting}[title={Program hello.c}, caption={hello.c}, label={lst:hello_world}]
-#include <stdio.h>
-#define CISLO 10
-
-int main(void) {
-	int i = CISLO;
-
-	print("Hello World!\n");
-	print("%d", i);
-
-	return (0);
-}
-\end{lstlisting}
-
-\lipsum[1]	
-
-\begin{lstlisting}[numbers=none, title={Příklad výstupního souboru}]
-11.0524
-5.5954
-6.7996
-13.8584
-15.1357
-Soucet: 52.4415
-\end{lstlisting}
+\chapter[Vývoj řídicí jednotky]{Vývoj řídicí jednotky}
+%%% v obsahu se objeví jen to co je v hranatých závorkách
+Hlavním hardwarem řídicí jednotky je Arduino UNO. Prvním krokem bylo připojení Bluetooth modulu HC-05 a modulu akcelerometru a gyroskopu MPU6050. Tyto komponenty byly propojeny s Arduinem pomocí vodičů a nepájivého kontaktního pole, které umožňuje flexibilní zapojení a případné úpravy obvodu.\\
+Software pro Arduino byl vytvořen v prostředí Arduino IDE, které je speciálně uzpůsobeno pro vývoj programů pro mikrořadič Arduino. Celý kód je nápsán v programovacím jazyce C++.\\
+Mimo software pro řídicí jednotku bylo nutné vyvinout mobilní aplikaci, která umožňuje ovládání dronu prostřednictvím technologie Bluetooth. Pro tento účel byla využita aplikace Bluetooth Electronics \cite{be}, která poskytuje širokou škálu přizpůsobitelných tlačítek a ovládacích panelů. Tato aplikace rovněž umožňuje nastavení jednotlivých odesílaných příkazů odesílaných řídicí jednotce a zajišťuje propojení mezi mobilním zařízením a Bluetooth modulem dronu.\\
+Profesionální drony jsou vybaveny pokročilým softwarem pro stabilizaci a automatickou korekci polohy. Konstrukčně realizovaný dron v této prací však funguje pouze na principu přímého ovládání motorů, přičemž neobsahuje stabilizační algoritmy. Výsledkem je vysoká nestabilita a značná náchylnost k pádu během letu. Implementace stabilizačního systému by vyžadovala složité programování, které by významně rozšířilo rozsah této maturitní práce.\\
+Navržený dron je kompletně zhotoven po hardwarové stránce, přičemž zbývající vývoj pro stabilizovaný let se týká výhradně implementace softwarového stabilizačního systému v Arduinu.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\linewidth]{ridici-jednotka.jpg}
+	\caption{Řídicí jednotka ve své finální podobě v ochranném krytu}
+	\label{fig:ridici-jednotka.jpg}
+\end{figure}
 
 \chapter{Program}
-Program Arduina je navržen tak, aby umožňoval bezdrátové řízení kvadrokoptéry prostřednictvím mobilní aplikace Bluetooth Electronics, která využívá Bluetooth komunikace. Program přijímá vysílané příkazy, analyzuje je a na jejich základě ovládá jednotlivé motory dronu. Každý ovládací prvek v aplikaci vysílá specifický signál s předponou, která umožňuje jeho správnou interpretaci.\\
-Ovládání kvadrokoptéry je realizováno několika prvky. Směrová tlačítka umístěná na levé straně ovladače ve tvaru „+“, vysílají příkazy s předponou p: a číslem 1 až 4. Tlačítko šipky nahoru slouží ke zvýšení výkonu motorů, šipka dolů jej naopak snižuje. Směrová tlačítka vlevo a vpravo ovlivňují rotaci dronu kolem jeho vertikální osy. Při uvolnění jakéhokoliv tlačítka se odešle příkaz p:0.\\
-K řízení směru letu slouží pravý joystick, jehož výchylka určuje náklon dronu. Tento prvek využívá příkazy s předponou m: a souřadnicemi následující písmena X a Y, které odpovídají aktuální poloze joysticku na obrazovce mobilního zařízení. Na základě míry vychýlení joysticku se kvadrokoptéra nakloní v příslušném směru, čímž dochází ke změně trajektorie letu.\\
-Důležitou součástí ovládacího systému jsou také bezpečnostní prvky. Červené tlačítko v horní části ovladače slouží jako nouzový vypínač a při jeho stisknutí dojde k okamžitému zastavení všech motorů. Žluté tlačítko zatím nemá přiřazenou funkci.\\
-Pro zajištění spolehlivého provozu obsahuje program textový výstup, který umožňuje monitorování přijatých příkazů a jejich zpracování. Tyto informace lze zobrazit při připojení Arduina k počítači přes USB kabel. Program rovněž implementuje bezpečnostní mechanismus, který zajistí, že v případě ztráty spojení mezi mobilním zařízením a kvadrokoptérou dojde k okamžitému zastavení motorů.\\
-Při nahrávání nového kódu do Arduina je nezbytné dočasně odpojit vodiče připojené k pinům 0 a 1, jelikož tyto piny jsou využívány během inicializace programu. Po úspěšném nahrání je nutné vodiče znovu připojit na původní místo, aby mohla kvadrokoptéra správně komunikovat s mobilní aplikací. Dalším bezpečnostním opatřením je zabudovaná ochrana motorů, která vyžaduje, aby byl jejich výkon při startu nastaven na nulu. Teprve poté mohou být motory aktivovány.\\
+Program Arduina je navržen tak, aby umožňoval bezdrátové řízení kvadrokoptéry prostřednictvím mobilní aplikace Bluetooth Electronics. Program přijímá vysílané příkazy, analyzuje je a na jejich základě ovládá motory dronu. Každý ovládací prvek v aplikaci vysílá specifický signál s předponou, která umožňuje jeho správnou interpretaci.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\linewidth]{aplikace.png}
+	\caption{Snímek z ovládacího rozhraní v aplikaci Bluetooth Electronics}
+	\label{fig:aplikace.png}
+\end{figure}
+Ovládání kvadrokoptéry je realizováno několika prvky. Směrová tlačítka umístěná na levé straně ovladače (ve tvaru „+“) vysílají příkazy s předponou \textit{p:} a číslem 1 až 4. Tlačítko šipky nahoru slouží ke zvýšení výkonu motorů, šipka dolů jej naopak snižuje. Směrová tlačítka vlevo a vpravo ovlivňují rotaci dronu kolem jeho vertikální osy.\\
+K řízení směru letu slouží pravý joystick, jehož výchylka určuje náklon dronu. Ten odesílá příkazy s předponou \textit{m:} následovanou souřadnicemi X a Y, které odpovídají aktuální poloze joysticku na obrazovce mobilního zařízení. Na základě míry vychýlení joysticku se kvadrokoptéra nakloní v příslušném směru, čímž dochází ke změně trajektorie letu.\\
+Důležitou součástí ovládacího systému jsou také bezpečnostní prvky. Červené tlačítko v horní části ovladače slouží jako nouzový vypínač a při jeho stisknutí dojde k okamžitému zastavení všech motorů. Žluté tlačítko zatím nemá přiřazenou žádnou funkci.\\
+Pro vývoj a debugování provozu obsahuje program textový výstup, který umožňuje monitorování přijatých příkazů a jejich zpracování. Tyto informace lze zobrazit při připojení Arduina k počítači přes USB kabel. Program rovněž implementuje bezpečnostní mechanismus, který zajistí, že v případě ztráty spojení mezi mobilním zařízením a kvadrokoptérou dojde k okamžitému zastavení motorů.\\
+Při nahrávání nového kódu do Arduina je nezbytné dočasně odpojit vodiče připojené k pinům 0 a 1, jelikož tyto piny jsou využívány v průběhu přenosu dat hardwarem Arduina. Po úspěšném nahrání je nutné vodiče znovu připojit na původní místo, aby mohla kvadrokoptéra správně komunikovat s mobilní aplikací. Další bezpečnostní opatření je součástí samotných motorů, které vyžadují, aby byl jejich výkon při startu nastaven na nulu. Teprve poté mohou být motory aktivovány.\\
 Tento program tak umožňuje efektivní a bezpečné ovládání kvadrokoptéry, přičemž zohledňuje jak uživatelskou přívětivost, tak i bezpečnostní aspekty provozu.
 
 \chapter{Schéma zapojení}
-Propojení Arduina s Bluetooth modulem, akcelerometrem, gyroskopem, baterií, regulátory ESC a motory je znázorněné na obrázku v programu Fritzing. Na schématu je patrný způsob napájení. Celá pohonná soustava čerpá energii přímo z připojené baterie, zatímco samotné Arduino je napájeno přes ESC propojené s 5V pinem. Dva z bezkartáčových motorů mají odlišné zapojení vodičů, což způsobuje jejich opačnou rotaci.
+Propojení Arduina s Bluetooth modulem, akcelerometrem, gyroskopem, baterií, regulátory ESC a motory je znázorněné na obrázku schématu v programu Fritzing. Celá pohonná soustava čerpá energii přímo z připojené baterie, zatímco samotné Arduino je napájeno přes ESC propojené s 5V pinem. Dva z bezkartáčových motorů mají odlišné zapojení vodičů, což způsobuje jejich rotaci opačným směrem.
 
 \vspace{40pt}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{drone-scheme.png}
-	\caption{Obrázek x.y: Schéma propojení modulů s Arduinem a pohonného systému}
+	\caption{Schéma propojení Arduina s moduly a pohonným systémem}
 	\label{fig:drone-scheme.png}
-  \end{figure}
+\end{figure}
 
 %%%%%%%%%%%%% ZÁVĚR
 \chapter*{Závěr}
@@ -429,12 +398,15 @@ Propojení Arduina s Bluetooth modulem, akcelerometrem, gyroskopem, baterií, re
 
 %%%%%%%%%%%%% PŘÍLOHY - APPENDIX 	
 \begin{appendices}
-	\chapter{Fotografie zkonstruované kvadrokoptéry}	
-	\lipsum[1]
-    	%\pitem{Fotky z pokusů}
-    	%\eitem{Vlastní program}
-    	%\eitem{Dokumentace}
-    	%\eitem{Testovací data}
+\chapter{Fotografie zkonstruované kvadrokoptéry}	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{finalni-dron1.jpg}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{finalni-dron2.jpg}
+\end{figure}
 \chapter{Kód programu Arduina}
 \begin{lstlisting}[title={}, caption={}, label={}, basicstyle=\footnotesize\ttfamily, inputencoding=utf8]
 #include <Servo.h> // Knihovna pro ovladani ESC pomoci PWM signalu
