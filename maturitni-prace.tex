@@ -9,6 +9,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{MP}
+\usepackage{siunitx}
 \setlength{\parindent}{1em} % Nastaví odsazení prvního řádku odstavce na 15pt
 						  % Import stylu maturitní práce
 \author{Kryštof Maxera}                  % AUTOR PRÁCE
@@ -44,11 +45,15 @@
 \addtocounter{page}{1}		% Posunutí countru stránek
 \pagenumbering{arabic}		% Číslování stránek arabskými číslicemi
 \chapter*{Úvod}     % úvod práce 
-V~této práci se zabýváme drony, technologiemi spojenými s~funkčností kvadrokoptér a konstrukcí kvadrokoptéry samotné. Hlavním účelem této práce je posloužit jako návodný materiál pro kohokoliv, kdo má zájem vyrobit si vlastní kvadrokoptéru v~domácích podmínkách, a to i bez předchozích zkušeností. Práce poskytuje čtenáři základní vhled do celé problematiky a slouží jako odrazový bod pro budoucí konstrukční projekty.
+Tato práce se zaměřuje na konstrukci dronů, konkrétně kvadrokoptér, a to z teoretického i praktického hlediska. V první části jsou popsány základní pojmy a charakteristiky dronů, zahrnující jejich různé typy, specifikace a fungování klíčových komponent. Druhá část práce se zaměřuje na samotnou konstrukci kvadrokoptéry, od návrhu rámu až po integraci elektroniky a softwaru.
 
-V~teoretické části se věnujeme definici dronu, popisu fungování jednotlivých komponent nezbytných pro jeho konstrukci a fyzice letu kvadrokoptér. V~praktické části navrhneme a zkonstruujeme kvadrokoptéru. Popíšeme konkrétní použité součástky a zhodnotíme jejich výhody a nevýhody. Dále se zabýváme i vývojem softwaru pro ovládání kvadrokoptéry.
+Hlavním účelem této práce je posloužit jako návodný materiál pro kohokoliv, kdo má zájem vyrobit si vlastní kvadrokoptéru v domácích podmínkách, a to i bez předchozích zkušeností. Práce poskytuje čtenáři základní vhled do celé problematiky a slouží jako odrazový bod pro jeho budoucí konstrukční projekty.
 
-V~závěru pak popíšeme možné optimalizace a vylepšení.
+V teoretické části čtenář nalezne definici dronu, přehled klíčových komponent kvadrokoptéry, jako jsou motory, vrtule, řídicí jednotka nebo baterie. Dále je popsána fyzika letu, která vysvětluje, jak kvadrokoptéra dosahuje pohybu ve vzduchu a jakými mechanismy je zajištěna stabilita při letu.
+
+Praktická část práce obsahuje postup konstrukce kvadrokoptéry. Tento proces zahrnuje výrobu rámu pomocí 3D tisku, výběr a montáž jednotlivých součástek, propojení komponent a vývoj softwaru pro ovládání. Popisujeme také implementaci Bluetooth komunikace pro ovládání kvadrokoptéry prostřednictvím mobilní aplikace.
+
+Závěrem práce reflektuje výsledky celého projektu, zdůrazňuje klíčové poznatky získané během konstrukce a uvádí návrhy na možná vylepšení, jako je implementace stabilizačních algoritmů či rozšíření funkcí pomocí dalších modulů.
 %%%%%%%%%%%%%% TEORETICKÁ ČÁST %%%%%%%%%%%%%%%%%%	
 \part[Úvod do světa dronů]{Úvod do světa dronů}  % název teoretické části (nenechávejte Teoretická část)
 
@@ -64,17 +69,17 @@ Důvodem časté záměny těchto dvou kategorií je překrývání některých 
 
 Drony lze obecně rozdělit do několika hlavních skupin na základě prostředí, ve kterém operují:
 \begin{itemize}
-	\item \textbf{Bezpilotní letadla} (\textit{UAVs - Unmanned Aerial Vehicles})
-	\item \textbf{Bezpilotní pozemní vozidla} (\textit{UGV - Unmanned Ground Vehicle})
-	\item \textbf{Hladinová plavidla bez posádky} (\textit{USV - Unmanned Surface Vehicle})
-	\item \textbf{Dálkově ovládaná podvodní vozidla} (\textit{ROUV - Remotely Operated Underwater Vehicles})
-	\item \textbf{Bezpilotní kosmické lodě} (\textit{Uncrewed spacecraft})
+	\item \textbf{Bezpilotní letadla} \textit{(UAVs - Unmanned Aerial Vehicles)}
+	\item \textbf{Bezpilotní pozemní vozidla} \textit{(UGV - Unmanned Ground Vehicle)}
+	\item \textbf{Hladinová plavidla bez posádky} \textit{(USV - Unmanned Surface Vehicle)}
+	\item \textbf{Dálkově ovládaná podvodní vozidla} \textit{(ROUV - Remotely Operated Underwater Vehicles)}
+	\item \textbf{Bezpilotní kosmické lodě} \textit{(Uncrewed spacecraft)}
 \end{itemize}
 
 Přestože označení dron lze použít pro širokou škálu zařízeních, pro širokou veřejnost je toto slovo primárně spjaté s~dálkově ovládanými bezpilotními letadly. Samo o~sobě však toto označení není chybné. V~této práci se zaměřujeme na konstrukci kvadrokoptéry, která spadá do kategorie bezpilotních letadel. O~té práce pojednává podrobněji. \cite{mainbook}
 
 \section[Bezpilotní letadla]{Bezpilotní letadla}
-Bezpilotní letadlo (\textit{UAV}) je definováno jako zařízení určené k~provozu ve vzdušném prostředí, které je buď řízeno dálkově operátorem, nebo schopno autonomního letu díky integrovanému softwaru a palubním senzorům.
+Bezpilotní letadlo (\textit{(UAV)}) je definováno jako zařízení určené k~provozu ve vzdušném prostředí, které je buď řízeno dálkově operátorem, nebo schopno autonomního letu díky integrovanému softwaru a palubním senzorům.
 
 Tato zařízení využívají pokročilé technologie pro navigaci, stabilizaci, komunikaci a sběr dat, přičemž jejich provozní komponenty se liší v~závislosti na specifickém účelu použití. Obecně však tato zařízení obsahují senzory nezbytné pro stabilizaci letu, jako je gyroskop a akcelerometr, spolu se senzory či moduly umožňujícími komunikaci. Komunikační technologie obvykle zahrnují přenos dat prostřednictvím rádiových vln, Wi-Fi, nebo mobilních sítí.
 
@@ -179,9 +184,9 @@ Motory lze rozdělit do dvou podkategorií: inrunner a outrunner, přičemž kl�
 \subsection[Kartáčové a bezkartáčové motory]{Kartáčové a bezkartáčové motory}
 Jedná se o~dva hlavní druhy motorů, lišící se způsobem přenosu energie a účinností.
 
-\textbf{Kartáčové motory} (\textit{brushed motors}) používají mechanické kartáče k~přenosu elektrické energie na rotor, kde jsou umístěny cívky. Stator je tvořen permanentními magnety. Proud procházející cívkami rotoru vytvoří magnetické pole odpuzované magnety na statoru tak, že motor generuje točivý moment. Tento design je jednoduchý a levný, ale méně účinný kvůli tření kartáčů, což způsobuje vyšší opotřebení a ztráty energie.
+\textbf{Kartáčové motory} \textit{(brushed motors)} používají mechanické kartáče k~přenosu elektrické energie na rotor, kde jsou umístěny cívky. Stator je tvořen permanentními magnety. Proud procházející cívkami rotoru vytvoří magnetické pole odpuzované magnety na statoru tak, že motor generuje točivý moment. Tento design je jednoduchý a levný, ale méně účinný kvůli tření kartáčů, což způsobuje vyšší opotřebení a ztráty energie.
 
-\textbf{Bezkartáčové motory} (\textit{brushless motors}) mají cívky na statoru a rotor tvořený permanentními magnety. Energie je přenášena elektronicky pomocí regulátorů otáček (\textit{ESC}), které ve správný čas mění polaritu cívek tak, aby odpuzovaly permanentní magnety na rotoru. Tento způsob eliminuje tření kartáčů. Bezkartáčové motory jsou účinnější, spolehlivější a vhodné pro aplikace vyžadující vysoký výkon a přesnost. Často se využívají například u~dronů nebo elektromobilů.
+\textbf{Bezkartáčové motory} \textit{(brushless motors)} mají cívky na statoru a rotor tvořený permanentními magnety. Energie je přenášena elektronicky pomocí regulátorů otáček \textit{(ESC)}, které ve správný čas mění polaritu cívek tak, aby odpuzovaly permanentní magnety na rotoru. Tento způsob eliminuje tření kartáčů. Bezkartáčové motory jsou účinnější, spolehlivější a vhodné pro aplikace vyžadující vysoký výkon a přesnost. Často se využívají například u~dronů nebo elektromobilů.
 
 \begin{figure}[H]
 	\centering
@@ -191,13 +196,13 @@ Jedná se o~dva hlavní druhy motorů, lišící se způsobem přenosu energie a
   \end{figure}
 
 \subsection[AC a DC]{AC a DC}
-Klíčové je také správné spárování baterie s~motorem. Baterie obvykle využívají stejnosměrný proud (\textit{DC}), zatímco bezkartáčové motory střídavý proud (\textit{AC}). V~takových případech je nezbytné zvolit vhodný regulátor otáček (\textit{ESC}), který zajistí správnou transformaci a distribuci elektrického proudu motorům. Kartáčové motory ke svojí funkci vyžadují stejnosměrný proud. \cite{mainbook} \cite{dojo} \cite{ultimateguide} \cite{motors}
+Klíčové je také správné spárování baterie s~motorem. Baterie obvykle využívají stejnosměrný proud \textit{(DC)}, zatímco bezkartáčové motory střídavý proud \textit{(AC)}. V~takových případech je nezbytné zvolit vhodný regulátor otáček \textit{(ESC)}), který zajistí správnou transformaci a distribuci elektrického proudu motorům. Kartáčové motory ke svojí funkci vyžadují stejnosměrný proud. \cite{mainbook} \cite{dojo} \cite{ultimateguide} \cite{motors}
 
 \section[Vrtule]{Vrtule}
 
 Vrtule fungují podobně jako šroub. Jejich lopatky se při otáčení “zavrtávají” do vzduchu a vytvářejí tak sílu, která pohání objekt vpřed.
 
-Používají se primárně dvě varianty vrtulí, které se liší směrem otáčení. První varianta se otáčí po směru hodinových ručiček (\textit{CW}), zatímco druhá proti směru hodinových ručiček (\textit{CCW}). Kombinace obou varian vrtulí napomáhá k~vyvážení a stabilizaci zařízení. \cite{mainbook} \cite{dojo}
+Používají se primárně dvě varianty vrtulí, které se liší směrem otáčení. První varianta se otáčí po směru hodinových ručiček \textit{(CW)}, zatímco druhá proti směru hodinových ručiček \textit{(CCW)}. Kombinace obou varian vrtulí napomáhá k~vyvážení a stabilizaci zařízení. \cite{mainbook} \cite{dojo}
 
 \section[Řídicí jednotka]{Řídicí jednotka}
 
@@ -205,16 +210,16 @@ Používají se primárně dvě varianty vrtulí, které se liší směrem otá�
 
 Nejběžnější senzory součástí řídicí jednotky:
 \begin{itemize}
-	\item Akcelerometr -  Měří zrychlení ve třech osách (\textit{x, y, z}) a pomáhá určit směr gravitace, což je nezbytné pro vyhodnocení naklonění dronu.
+	\item Akcelerometr -  Měří zrychlení ve třech osách \textit{(x, y, z)} a pomáhá určit směr gravitace, což je nezbytné pro vyhodnocení naklonění dronu.
 	\item Gyroskop - Sleduje rotaci a úhlové změny dronu, což umožňuje rychlé a přesné úpravy pro udržení stability.
 \end{itemize}
 
 Řídicí jednotka přijímá data ze senzorů a na jejich základě upravuje výkon jednotlivých motorů. \cite{mainbook}
 
 \section[Komunikační systém]{Komunikační systém}
-Komunikační systém dronu slouží k~přenosu informací mezi pilotem a samotným zařízením. Základem je RC (\textit{Radio Control}) ovladač, který se skládá z~vysílače (drženého pilotem) a přijímače umístěného na dronu. Přijímač je přímo propojen s~řídicí jednotkou (\textit{flight controllerem}), která interpretuje přijaté signály a převádí je na odpovídající povely pro motory a další komponenty.
+Komunikační systém dronu slouží k~přenosu informací mezi pilotem a samotným zařízením. Základem je RC \textit{(Radio Control)} ovladač, který se skládá z~vysílače (drženého pilotem) a přijímače umístěného na dronu. Přijímač je přímo propojen s~řídicí jednotkou \textit{(flight controllerem)}, která interpretuje přijaté signály a převádí je na odpovídající povely pro motory a další komponenty.
 
-Pro základní ovládání jsou využívány minimálně čtyři komunikační kanály, které odpovídají následujícím funkcím: náklon do stran (\textit{roll}), náklon vpřed a vzad (\textit{pitch}), otáčení kolem svislé osy (\textit{yaw}) a regulace výkonu motorů (\textit{throttle}). Alternativně může být pro komunikaci využita technologie Bluetooth, která mimo jiné umožňuje ovládání dronu prostřednictvím mobilních zařízení.
+Pro základní ovládání jsou využívány minimálně čtyři komunikační kanály, které odpovídají následujícím funkcím: náklon do stran \textit{(roll)}, náklon vpřed a vzad \textit{(pitch)}, otáčení kolem svislé osy \textit{(yaw)} a regulace výkonu motorů \textit{(throttle)}. Alternativně může být pro komunikaci využita technologie Bluetooth, která mimo jiné umožňuje ovládání dronu prostřednictvím mobilních zařízení.
 
 \section[Baterie]{Baterie}
 
@@ -291,7 +296,7 @@ Jednotlivé části vytištěného rámu byly smontovány pomocí šroubů a mat
 \section[Motory]{Motory}
 Jako pohonná jednotka byl zvolen bezkartáčový motor 2212 920KV, který nabízí optimální rovnováhu mezi výkonem a spotřebou energie. U~dronů se obecně preferují outrunner motory, které jsou díky své konstrukci efektivnější, poskytují vyšší točivý moment a lepší chladicí vlastnosti.
 
-Hodnota KV udává počet otáček motoru za minutu (\textit{RPM}) na jeden volt napájecího napětí. To znamená, že například motor 2212 920KV při napětí 1V dosáhne přibližně 920 ot./min, při 2V to bude 1840 ot./min atd.
+Hodnota KV udává počet otáček motoru za minutu \textit{(RPM)} na jeden volt napájecího napětí. To znamená, že například motor 2212 920KV při napětí 1V dosáhne přibližně 920 ot./min, při 2V to bude 1840 ot./min atd.
 
 První uvedené číslo v~označení motoru (2212) udává jeho rozměry. První dvě číslice (22) udávají průměr statoru a druhé dvě číslice (12) označují výšku statoru v~milimetrech.
 
@@ -302,10 +307,17 @@ První uvedené číslo v~označení motoru (2212) udává jeho rozměry. První
 	\label{fig:motor.jpg}
 \end{figure}
 
-V~neposlední řadě je důležité dbát na správnou orientaci závitu tak, aby se utahování vrtule vždy provádělo proti směru otáčení motoru. Toto řešení je klíčové z~hlediska bezpečnosti, protože zabraňuje uvolnění vrtule při prudkém zpomalení nebo zastavení motoru. Pro stabilizaci letu je nutné, aby byly použity dva motory s~pravotočivou rotací (\textit{CW - Clockwise}) a dva s~levotočivou rotací (\textit{CCW - Counterclockwise}). \cite{ol}
+V~neposlední řadě je důležité dbát na správnou orientaci závitu tak, aby se utahování vrtule vždy provádělo proti směru otáčení motoru. Toto řešení je klíčové z~hlediska bezpečnosti, protože zabraňuje uvolnění vrtule při prudkém zpomalení nebo zastavení motoru. Pro stabilizaci letu je nutné, aby byly použity dva motory s~pravotočivou rotací \textit{(CW - Clockwise)} a dva s~levotočivou rotací \textit{(CCW - Counterclockwise)}. \cite{ol}
 
 \section[Vrtule]{Vrtule}
-Zvolené vrtule nesou označení 1045, kde první dvě číslice označují průměr vrtule v~palcích a poslední dvě číslice představují stoupání vrtule v~palcích. Stoupání vrtule (propeller pitch) určuje vzdálenost, kterou vrtule urazí při jednom otočení za ideálních podmínek. Vyšší stoupání znamená větší objem vzduchu přemístěného směrem dolů během rotace, což zvyšuje tah, ale zároveň zvyšuje aerodynamický odpor a zatížení motoru. Princip lze přirovnat ke závitu šroubu, kde stoupání určuje hloubku zavrtání za otáčku. Existují dvě varianty vrtulí, podle jejich směru točení (\textit{CW a CCW}).
+Zvolené vrtule nesou označení 1045, kde první dvě číslice označují průměr vrtule v~palcích a poslední dvě číslice představují stoupání vrtule v~palcích. Stoupání vrtule (propeller pitch) určuje vzdálenost, kterou vrtule urazí při jednom otočení za ideálních podmínek. Vyšší stoupání znamená větší objem vzduchu přemístěného směrem dolů během rotace, což zvyšuje tah, ale zároveň zvyšuje aerodynamický odpor a zatížení motoru. Princip lze přirovnat ke závitu šroubu, kde stoupání určuje hloubku zavrtání za otáčku. Existují dvě varianty vrtulí, podle jejich směru točení \textit{(CW a CCW)}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{vrtule.jpg}
+	\caption{CW a CCW vrtule}
+	\label{fig:motor.jpg}
+\end{figure}
 
 \section[ESC]{ESC}
 Brushless motory vyžadují třífázové napájení, což je poměrně složitý proces, který zajišťuje vestavěný mikrořadič v~ESC. Z~našeho pohledu stačí do ESC přivést napájecí proud a prostřednictvím signálního vodiče mu sdělit, jakou rychlostí se má motor otáčet.
@@ -320,7 +332,7 @@ Je důležité zajistit, aby ESC bylo kompatibilní s~daným bezkartáčovým mo
 \end{figure}
 
 \section{Rozvodná deska napájení}
-Rozvodná deska napájení (\textit{PDB}) slouží k~distribuci energie z~baterie do všech komponent. Všechny čtyři ESC jsou k~této desce připájeny a baterie je k~ní připojena přes bezpečný napájecí konektor.
+Rozvodná deska napájení \textit{(PDB)} slouží k~distribuci energie z~baterie do všech komponent. Všechny čtyři ESC jsou k~této desce připájeny a baterie je k~ní připojena přes bezpečný napájecí konektor.
 
 \section[Baterie]{Baterie}
 Jedná se o~zdroj veškeré energie pro dron. V~této práci byla vybrána baterie se specifikací LiPo 2200mAh 14.8V 30C 4S1P.
@@ -332,9 +344,9 @@ Jedná se o~zdroj veškeré energie pro dron. V~této práci byla vybrána bater
 	\label{fig:battery2.jpg}
 \end{figure}
 
-Začněme částí 4S. Bateriový pack je složen z~jednotlivých malých bateriových článků. Jeden LiPo článek má 4,2 V~za předpokladu, že je plně nabitý. Označení 4S značí, že čtyři články jsou zapojeny sériově, což znamená, že výsledné napětí baterie se sčítá. Napětí celého, plně nabitého, bateriového packu tedy činí 16,8 V.
+Začněme částí 4S. Bateriový pack je složen z~jednotlivých malých bateriových článků. Jeden LiPo článek má 4,2~V za předpokladu, že je plně nabitý. Označení 4S značí, že čtyři články jsou zapojeny sériově, což znamená, že výsledné napětí baterie se sčítá. Napětí celého, plně nabitého, bateriového packu tedy činí 16,8 V.
 
-Hodnota 2200mAh označuje celkovou kapacitu baterie, což znamená, že při odběru 2,2 A~by baterie měla teoreticky vydržet jednu hodinu.
+Hodnota 2200mAh označuje celkovou kapacitu baterie, což znamená, že při odběru 2,2~A by baterie měla teoreticky vydržet jednu hodinu.
 
 Posledním parametrem je C-rating, který udává maximální proud, který je baterie schopna dodat. Maximální proud lze vypočítat jako C-rating × kapacita v~Ah:
 \[
@@ -370,9 +382,9 @@ Prvním krokem při konstrukci dronu bylo vytvoření jeho rámu pomocí 3D tisk
 
 Dalším krokem byla instalace a zapojení napájecího systému. Jednotlivé napájecí vodiče motorů byly připájeny k~rozvodové desce, která zajišťuje distribuci elektrické energie v~celém zařízení. Stejným způsobem byl k~rozvodové desce připojen hlavní napájecí kabel, přes který je k~desce připojena baterie. Po dokončení byly motory rozmístěny na koncích ramen dronu tak, aby jejich směr otáčení odpovídal požadované konfiguraci letového systému.
 
-Motory byly ke konstrukci připevněny pomocí šroubků, přičemž pro dodatečnou stabilizaci byly elektronické regulátory otáček (\textit{ESC}) zajištěny pomocí instalačních pásků.
+Motory byly ke konstrukci připevněny pomocí šroubků, přičemž pro dodatečnou stabilizaci byly elektronické regulátory otáček \textit{(ESC)} zajištěny pomocí instalačních pásků.
 
-Po dokončení mechanické konstrukce dronu následoval klíčový krok, kterým je návrh a implementace řídicí jednotky (\textit{flight controlleru}).
+Po dokončení mechanické konstrukce dronu následoval klíčový krok, kterým je návrh a implementace řídicí jednotky \textit{(flight controlleru)}.
 
 \begin{figure}[H]
 	\centering
@@ -387,7 +399,7 @@ Hlavním hardwarem řídicí jednotky je Arduino UNO. Prvním krokem bylo připo
 
 Samotná komunikace s~MPU6050 probíhá prostřednictvím sběrnice I2C, která využívá synchronní sériovou komunikaci. Přenos dat probíhá přes dvouvodičovou linku SDA (data) a SCL (hodiny). \cite{i2c}
 
-Komunikace s~HC-05 probíhá prostřednictvím sběrnice UART, která využívá asynchronní sériovou komunikaci pomocí dvou vodičů TX (\textit{transmit}) a RX (\textit{receive}) s~definovanou přenosovou rychlostí (\textit{baud rate, např. 9600, 115200 baud}). Na rozdíl od I2C zde chybí hodinový signál. UART nepodporuje adresaci více zařízení na jedné sběrnici, což znamená, že komunikace probíhá pouze point-to-point mezi dvěma zařízeními. \cite{uart}
+Komunikace s~HC-05 probíhá prostřednictvím sběrnice UART, která využívá asynchronní sériovou komunikaci pomocí dvou vodičů TX \textit{(transmit)} a RX \textit{(receive)} s~definovanou přenosovou rychlostí \textit{(baud rate, např. 9600, 115200 baud)}. Na rozdíl od I2C zde chybí hodinový signál. UART nepodporuje adresaci více zařízení na jedné sběrnici, což znamená, že komunikace probíhá pouze point-to-point mezi dvěma zařízeními. \cite{uart}
 
 \begin{figure}[H]
 	\centering
@@ -436,9 +448,9 @@ Tento program tak umožňuje efektivní a bezpečné ovládání kvadrokoptéry,
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\linewidth]{letici-dron.png}
+	\includegraphics[width=0.7\linewidth]{letici-dron.jpeg}
 	\caption{Finální kostrukce dronu v akci}
-	\label{fig:letici-dron.png}
+	\label{fig:letici-dron.jpeg}
 \end{figure}
 
 \chapter[Schéma zapojení]{Schéma zapojení}
@@ -504,7 +516,7 @@ if (data.startsWith("p:")) {
 	Serial.print("Zpracovavam prikaz: p:");
 	Serial.println(number);
 
-	// Zvyseni vykonu motoru
+	// Zvyseni vykonu motoru pokud cislo za pismenem p je 1
 	if (number == 1) {
 	if (power <= 95) {
 		power += 5;
@@ -514,11 +526,11 @@ if (data.startsWith("p:")) {
 		power = 100;
 	}
 
-	// Rotace doleva p:2 (zatim neimplementovano)
+	// Rotace doleva (zatim neimplementovano)
 	} else if (number == 2) {
 	Serial.println("Akce pro p:2");
 
-	// Snizeni vykonu motoru
+	// Snizeni vykonu motoru pokud cislo za pismenem p je 3
 	} else if (number == 3) {
 	if (power >= 5) {
 		power -= 5;
@@ -528,7 +540,7 @@ if (data.startsWith("p:")) {
 		power = 0;
 	}
 
-	// Rotace doprava p:4 (zatim neimplementovano)
+	// Rotace doprava (zatim neimplementovano)
 	} else if (number == 4) {
 	Serial.println("Akce pro p:4");
 
@@ -590,6 +602,8 @@ else {
 data = "";
 }
 
+//----------------------------------------------------------------------------------------
+
 void setup() {
 Serial.begin(9600); // Spusteni seriove komunikace
 Serial.println("Pripraveno na prijem dat pres Bluetooth...");
@@ -603,6 +617,8 @@ ESC4.attach(7, 1000, 2000);
 power = 0; // Vychozi vykon motoru
 pinMode(bluActive, INPUT); // Nastaveni pinu pro cteni stavu Bluetooth pripojeni
 }
+
+//----------------------------------------------------------------------------------------
 
 void loop() {
 // Kontrola, zda je k~dispozici data ze seriove komunikace
@@ -631,6 +647,8 @@ ESC1.write(escValue); // Nastaveni vykonu pro motor 1
 ESC2.write(escValue);
 ESC3.write(escValue);
 ESC4.write(escValue);
+
+// Konec programu
 }	
 \end{lstlisting}  
 \end{appendices}
