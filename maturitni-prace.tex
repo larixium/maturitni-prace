@@ -36,7 +36,7 @@
 	}
 	
 	\podekovani{
-		Rád bych poděkoval svému vedoucímu práce, Dr. rer. nat. Michalu Kočerovi, který mi byl oporou při psaní práce, ochotně se mnou konzultoval její průběh a jehož zásluhou jsem ji mohl vypracovat bez větších problémů. Dále bych chtěl poděkovat svému bývalému spolužákovi Šimonu Borovkovi, se kterým jsme tento projekt před několika lety společně začali a já jsem ho nyní měl možnost dokončit. Mé díky patří také mému otci, který byl jedním z~prvních, kdo mou práci četl, a významně mi pomohl s~její jazykovou korekturou. V~neposlední řadě bych chtěl poděkovat Jonáši Havelkovi, jehož šablonu pro \LaTeX jsem v~práci použil, a Václavu Baureovi a jeho maturitní práci na téma Systém Ball and Beam, která mi v~mnoha případech posloužila jako výborný zdroj inspirace.
+		Rád bych poděkoval svému vedoucímu práce Dr. rer. nat. Michalu Kočerovi, který mi byl oporou při psaní práce, ochotně se mnou konzultoval její průběh a jehož zásluhou jsem ji mohl vypracovat bez větších problémů. Dále bych chtěl poděkovat svému bývalému spolužákovi Šimonu Borovkovi, se kterým jsme tento projekt před několika lety společně začali a já jsem ho nyní měl možnost dokončit. Mé díky patří také mému otci, který byl jedním z~prvních, kdo mou práci četl a pomohl mi s~její jazykovou korekturou. V~neposlední řadě bych chtěl poděkovat Jonáši Havelkovi, jehož šablonu pro \LaTeX jsem v~práci použil a Václavu Baureovi a jeho maturitní práci na téma Systém Ball and Beam, která mi v~mnoha případech posloužila jako cenný zdroj inspirace.
 	}
 	
    {\tableofcontents\newpage}			% Obsah
@@ -45,11 +45,11 @@
 \addtocounter{page}{1}		% Posunutí countru stránek
 \pagenumbering{arabic}		% Číslování stránek arabskými číslicemi
 \chapter*{Úvod}     % úvod práce 
-Tato práce se zaměřuje na konstrukci dronů, konkrétně kvadrokoptér, a to z~teoretického i praktického hlediska. V~první části jsou popsány základní pojmy a charakteristiky dronů, zahrnující jejich různé typy, specifikace a fungování klíčových komponent. Druhá část práce se zaměřuje na samotnou konstrukci kvadrokoptéry, od návrhu rámu až po integraci elektroniky a softwaru.
+Tato práce se zaměřuje na konstrukci dronů, konkrétně kvadrokoptér, a to z~teoretického i praktického hlediska. V~první části jsou popsány základní pojmy a charakteristiky dronů zahrnující jejich různé typy, specifikace a fungování klíčových komponent. Druhá část práce se zaměřuje na samotnou konstrukci kvadrokoptéry od návrhu rámu až po integraci elektroniky a softwaru.
 
 Hlavním účelem této práce je posloužit jako návodný materiál pro kohokoliv, kdo má zájem vyrobit si vlastní kvadrokoptéru v~domácích podmínkách, a to i bez předchozích zkušeností. Práce poskytuje čtenáři základní vhled do celé problematiky a slouží jako odrazový bod pro jeho budoucí konstrukční projekty.
 
-V~teoretické části čtenář nalezne definici dronu, přehled klíčových komponent kvadrokoptéry, jako jsou motory, vrtule, řídicí jednotka nebo baterie. Dále je popsána fyzika letu, která vysvětluje, jak kvadrokoptéra dosahuje pohybu ve vzduchu a jakými mechanismy je zajištěna stabilita při letu.
+V~teoretické části čtenář nalezne definici dronu, přehled klíčových komponent kvadrokoptéry jako jsou motory, vrtule, řídicí jednotka nebo baterie. Dále je popsána fyzika letu, která vysvětluje, jak kvadrokoptéra dosahuje pohybu ve vzduchu a jakými mechanismy je zajištěna stabilita při letu.
 
 Praktická část práce obsahuje postup konstrukce kvadrokoptéry. Tento proces zahrnuje výrobu rámu pomocí 3D tisku, výběr a montáž jednotlivých součástek, propojení komponent a vývoj softwaru pro ovládání. Popisujeme také implementaci Bluetooth komunikace pro ovládání kvadrokoptéry prostřednictvím mobilní aplikace.
 
@@ -83,7 +83,7 @@ Bezpilotní letadlo (\textit{(UAV)}) je definováno jako zařízení určené k~
 
 Tato zařízení využívají pokročilé technologie pro navigaci, stabilizaci, komunikaci a sběr dat, přičemž jejich provozní komponenty se liší v~závislosti na specifickém účelu použití. Obecně však tato zařízení obsahují senzory nezbytné pro stabilizaci letu, jako je gyroskop a akcelerometr, spolu se senzory či moduly umožňujícími komunikaci. Komunikační technologie obvykle zahrnují přenos dat prostřednictvím rádiových vln, Wi-Fi, nebo mobilních sítí.
 
-Tato zařízení lze dále klasifikovat na základě specifických parametrů, jako je typ konstrukce křídla, hmotnost, zdroj napájení či funkční zaměření.
+Tato zařízení lze dále klasifikovat na základě specifických parametrů jako je typ konstrukce křídla, hmotnost, zdroj napájení či funkční zaměření.
 
 \begin{figure}[H]
 	\centering
@@ -94,7 +94,7 @@ Tato zařízení lze dále klasifikovat na základě specifických parametrů, j
 
 Při klasifikaci na základě typu konstrukce křídla lze bezpilotní letadla rozdělit do dvou hlavních skupin:
 \begin{itemize}
-	\item Rotorová letadla - zahrnující jednorotorové a vícerotorové varianty, jako jsou trikoptéry, kvadrokoptéry, hexakoptéry a oktokoptéry.
+	\item Rotorová letadla - zahrnující jednorotorové a vícerotorové varianty jako jsou trikoptéry, kvadrokoptéry, hexakoptéry a oktokoptéry.
 	\item Letadla s~pevnými křídly - zahrnují drony, které vyžadují pohyb vpřed k~generování vztlaku pomocí křídel. Patří sem také hybridní drony s~vertikálním vzletem a přistáním, jež nevyžadují přistávací dráhu.
 \end{itemize}
 
@@ -129,7 +129,7 @@ Plavidla pohybující se po mořské nebo sladkovodní hladině. Často jsou vyu
 Podvodní zařízení určená převážně pro průzkumné a vědecké účely. Představují klíčový nástroj pro studium mořského prostředí. Jejich fungování se však výrazně liší od ostatních autonomních systémů, a to kvůli technickým výzvám spojených s~provozem ve velkých hloubkách. V~těchto podmínkách je použití rádiových vln pro komunikaci téměř nemožné kvůli jejich omezené prostupnosti vodou. Namísto bezdrátové komunikace jsou proto tato zařízení spojena s~mateřskou lodí nebo ponorkou pomocí robustního kabelu, který slouží nejen jako přenosové médium pro data a jako zdroj energie. \cite{mainbook}
 
 \section[Bezpilotní kosmické lodě]{Bezpilotní kosmické lodě}
-Vesmír představuje ideální prostředí pro využití dronů. Jedná se o~místo, které je význačné svou nehostinnostní pro lidskou přítomnost. Vesmírné drony nabízejí méně rizikové řešení pro dosažení různých cílů bez nutnosti návratu zařízení zpět na Zemi. Místa, kde se využívají, zahrnují kosmický prostor, kde slouží k~prozkoumávání vzdálených objektů, povrchy nehostinných planet, kde fungují jako rovery, a oběžnou dráhu Země, kde podporují fungování klíčových technologií, jako je například GPS. \cite{mainbook}
+Vesmír představuje ideální prostředí pro využití dronů. Jedná se o~místo, které je význačné svou nehostinnostní pro lidskou přítomnost. Vesmírné drony nabízejí méně rizikové řešení pro dosažení různých cílů bez nutnosti návratu zařízení zpět na Zemi. Místa, kde se využívají, zahrnují kosmický prostor, kde slouží k~prozkoumávání vzdálených objektů, povrchy nehostinných planet, kde fungují jako rovery a oběžnou dráhu Země, kde podporují fungování klíčových technologií jako je například GPS. \cite{mainbook}
 
 Využití všech těchto typů dronů má společnou vlastnost. Jejich využití je na místech, kde lze drahou pracovní sílu člověka nahradit automatickým zařízením nebo místech, které jsou příliš riskantní pro přítomnost člověka. Jejich nasazení se neustále rozšiřuje a lze předpokládat, že v~budoucnu bude jejich význam dále narůstat.
 
