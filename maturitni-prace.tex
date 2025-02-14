@@ -30,13 +30,13 @@
 	}	
 	
 	\abstrakt{
-		Tato práce se zabývá problematikou konstrukce kvadrokoptéry ve spojení s~mikrořadičem Arduino. Rozebíráme jak fungují její základní komponenty a principy fyziky letu. Praktická část práce se zaměřuje na návrh a sestavení skutečné kvadrokoptéry. 
+		Tato práce se zabývá problematikou konstrukce kvadrokoptéry ve spojení s~mikrořadičem Arduino. Rozebíráme, jak fungují její základní komponenty a principy fyziky letu. Praktická část práce se zaměřuje na návrh a sestavení skutečné kvadrokoptéry. 
 	}{
 		Kvadrokoptéra, konstrukce dronu, fyzika letu dronu, Arduino 
 	}
 	
 	\podekovani{
-		Rád bych poděkoval svému vedoucímu práce Dr. rer. nat. Michalu Kočerovi, který mi byl oporou při psaní práce, ochotně se mnou konzultoval její průběh a jehož zásluhou jsem ji mohl vypracovat bez větších problémů. Dále bych chtěl poděkovat svému bývalému spolužákovi Šimonu Borovkovi, se kterým jsme tento projekt před několika lety společně začali a já jsem ho nyní měl možnost dokončit. Mé díky patří také mému otci, který byl jedním z~prvních, kdo mou práci četl a pomohl mi s~její jazykovou korekturou. V~neposlední řadě bych chtěl poděkovat Jonáši Havelkovi, jehož šablonu pro \LaTeX~jsem v~práci použil a Václavu Baureovi a jeho maturitní práci na téma Systém Ball and Beam, která mi v~mnoha případech posloužila jako cenný zdroj inspirace.
+		Rád bych poděkoval svému vedoucímu práce Dr. rer. nat. Michalu Kočerovi, který mi byl oporou při psaní práce, ochotně se mnou konzultoval její průběh a jehož zásluhou jsem ji mohl vypracovat bez větších problémů. Dále bych chtěl poděkovat svému bývalému spolužákovi Šimonu Borovkovi, se kterým jsme tento projekt před několika lety společně začali a já jsem ho nyní měl možnost dokončit. Mé díky patří také mým rodičům, kteří byli jedni z~prvních, kdo mou práci četli a pomohli mi s~její jazykovou korekturou. V~neposlední řadě bych chtěl poděkovat Jonáši Havelkovi, jehož šablonu pro \LaTeX~jsem v~práci použil a Václavu Baureovi a jeho maturitní práci na téma Systém Ball and Beam, která mi v~mnoha případech posloužila jako cenný zdroj inspirace.
 	}
 	
    {\tableofcontents\newpage}			% Obsah
@@ -63,7 +63,7 @@ Dron je definován jako zařízení nebo stroj schopný vykonávat úkoly bez nu
 
 První kategorii tvoří plně autonomní roboti, u~jichž je přítomnost člověka vyžadována primárně z~kontrolních a bezpečnostních důvodu. Pilot nebo operátor zde většinou nezasahuje do aktivního řízení, ale v~případě potřeby může převzít kontrolu. Typickým příkladem jsou autonomní bezpilotní letadla s~možností vzdáleného ovládání nebo samořízené motorové vozidlo, které ke svému provozu nepotřebuje řidiče přítomného ve vozidle.
 
-Druhá kategorie je pro veřejnost známější. Zařízení v~této kategorii se také nazývají drony, přestože se jedná dálkově ovládaná zařízení, která nejsou plně autonomní. Do této skupiny patří široce známé kvadrokoptéry a další multikoptéry, stejně jako autíčka na dálkové ovládání.
+Druhá kategorie je pro veřejnost známější. Zařízení v~této kategorii se také nazývají drony, přestože se jedná o dálkově ovládaná zařízení, která nejsou plně autonomní. Do této skupiny patří široce známé kvadrokoptéry a další multikoptéry, stejně jako autíčka na dálkové ovládání.
 
 Důvodem časté záměny těchto dvou kategorií je překrývání některých funkcí, neboť i dálkově ovládané kvadrokoptéry využívají automatické systémy, například pro samovyvažování, které jsou nezbytné pro jejich stabilní let. \cite{mainbook}
 
@@ -76,12 +76,12 @@ Drony lze obecně rozdělit do několika hlavních skupin na základě prostřed
 	\item \textbf{Bezpilotní kosmické lodě} \textit{(Uncrewed spacecraft)}
 \end{itemize}
 
-Přestože označení dron lze použít pro širokou škálu zařízeních, pro širokou veřejnost je toto slovo primárně spjaté s~dálkově ovládanými bezpilotními letadly. Samo o~sobě však toto označení není chybné. V~této práci se zaměřujeme na konstrukci kvadrokoptéry, která spadá do kategorie bezpilotních letadel. O~té práce pojednává podrobněji. \cite{mainbook}
+Přestože označení dron lze použít pro širokou škálu zařízení, pro širokou veřejnost je toto slovo primárně spjaté s~dálkově ovládanými bezpilotními letadly. Samo o~sobě však toto označení není chybné. V~této práci se zaměřujeme na konstrukci kvadrokoptéry, která spadá do kategorie bezpilotních letadel. O~té práce pojednává podrobněji. \cite{mainbook}
 
 \section[Bezpilotní letadla]{Bezpilotní letadla}
 Bezpilotní letadlo \textit{(UAV)} je definováno jako zařízení určené k~provozu ve vzdušném prostředí, které je buď řízeno dálkově operátorem nebo schopno autonomního letu díky integrovanému softwaru a palubním senzorům.
 
-Tato zařízení využívají pokročilé technologie pro navigaci, stabilizaci, komunikaci a sběr dat, přičemž jejich provozní komponenty se liší v~závislosti na specifickém účelu použití. Obecně však tato zařízení obsahují senzory nezbytné pro stabilizaci letu, jako je gyroskop a akcelerometr, spolu se senzory či moduly umožňujícími komunikaci. Komunikační technologie obvykle zahrnují přenos dat prostřednictvím rádiových vln, Wi-Fi, nebo mobilních sítí.
+Tato zařízení využívají pokročilé technologie pro navigaci, stabilizaci, komunikaci a sběr dat, přičemž jejich provozní komponenty se liší v~závislosti na specifickém účelu použití. Obecně však tato zařízení obsahují senzory nezbytné pro stabilizaci letu jako je gyroskop a akcelerometr, spolu se senzory či moduly umožňujícími komunikaci. Komunikační technologie obvykle zahrnují přenos dat prostřednictvím rádiových vln, Wi-Fi nebo mobilních sítí.
 
 Tato zařízení lze dále klasifikovat na základě specifických parametrů jako je typ konstrukce křídla, hmotnost, zdroj napájení či funkční zaměření.
 
@@ -108,13 +108,13 @@ Zařazení na základě zdroje napájení:
 
 Zařazení na základě způsobu použití:
 \begin{itemize}
-	\item rekreační využití
-	\item letecká fotografie a videografie
-	\item pátrací a záchranné operace
-	\item vojenský průmysl
-	\item stavební průmysl, monitorování a měření
-	\item zemědělství
-	\item dopravní a logistické služby
+	\item Rekreační využití
+	\item Letecká fotografie a videografie
+	\item Pátrací a záchranné operace
+	\item Vojenský průmysl
+	\item Stavební průmysl, monitorování a měření
+	\item Zemědělství
+	\item Dopravní a logistické služby
 \end{itemize}
 
 Tato skupina zařízení byla po dlouhou dobu spojována především s~vojenským průmyslem. V~současnosti však díky široké škále aplikací nacházejí stále větší uplatnění i v~civilních oblastech jako je průmysl, zemědělství nebo vědecký výzkum. Díky klesajícím cenám se osobní kvadrokoptéry stávají stále populárnějšími také pro rekreační účely. \cite{mainbook} \cite{whatisadrone}
@@ -129,7 +129,7 @@ Plavidla pohybující se po mořské nebo sladkovodní hladině. Často jsou vyu
 Podvodní zařízení určená převážně pro průzkumné a vědecké účely. Představují klíčový nástroj pro studium mořského prostředí. Jejich fungování se však výrazně liší od ostatních autonomních systémů, a to kvůli technickým výzvám spojených s~provozem ve velkých hloubkách. V~těchto podmínkách je použití rádiových vln pro komunikaci téměř nemožné kvůli jejich omezené prostupnosti vodou. Namísto bezdrátové komunikace jsou proto tato zařízení spojena s~mateřskou lodí nebo ponorkou pomocí robustního kabelu, který slouží nejen jako přenosové médium pro data a jako zdroj energie. \cite{mainbook}
 
 \section[Bezpilotní kosmické lodě]{Bezpilotní kosmické lodě}
-Vesmír představuje ideální prostředí pro využití dronů. Jedná se o~místo, které je význačné svou nehostinnostní pro lidskou přítomnost. Vesmírné drony nabízejí méně rizikové řešení pro dosažení různých cílů bez nutnosti návratu zařízení zpět na Zemi. Místa, kde se využívají, zahrnují kosmický prostor, kde slouží k~prozkoumávání vzdálených objektů, povrchy nehostinných planet, kde fungují jako rovery a oběžnou dráhu Země, kde podporují fungování klíčových technologií jako je například GPS. \cite{mainbook}\\
+Vesmír představuje ideální prostředí pro využití dronů. Jedná se o~místo, které je význačné svou nehostinností pro lidskou přítomnost. Vesmírné drony nabízejí méně rizikové řešení pro dosažení různých cílů bez nutnosti návratu zařízení zpět na Zemi. Místa, kde se využívají, zahrnují kosmický prostor, kde slouží k~prozkoumávání vzdálených objektů, povrchy nehostinných planet, kde fungují jako rovery, a oběžnou dráhu Země, kde podporují fungování klíčových technologií jako je například GPS. \cite{mainbook}\\
 
 Využití všech těchto typů dronů má společnou vlastnost. Jejich využití je na místech, kde lze drahou pracovní sílu člověka nahradit automatickým zařízením nebo místech, které jsou příliš riskantní pro přítomnost člověka. Jejich nasazení se neustále rozšiřuje a lze předpokládat, že v~budoucnu bude jejich význam dále narůstat.
 
@@ -206,7 +206,7 @@ Používají se primárně dvě varianty vrtulí, které se liší směrem otá�
 
 \section[Řídicí jednotka]{Řídicí jednotka}
 
-Řídicí jednotku \textit{(flight controller)} lze přirovnat k~„mozku“ celého dronu. Její hlavní funkcí je ovládání a automatické vyvažování dronu. Zajišťuje, aby dron zůstal stabilní i v~obtížných podmínkách, jako je vítr nebo nerovnoměrné rozložení hmotnosti. Díky tomu se pilot nemusí soustředit na neustálé drobné korekce, což usnadňuje manévrování.
+Řídicí jednotku \textit{(flight controller)} lze přirovnat k~„mozku“ celého dronu. Její hlavní funkcí je ovládání a automatické vyvažování dronu. Zajišťuje, aby dron zůstal stabilní i v~obtížných podmínkách jako je vítr nebo nerovnoměrné rozložení hmotnosti. Díky tomu se pilot nemusí soustředit na neustálé drobné korekce, což usnadňuje manévrování.
 
 Nejběžnější senzory součástí řídicí jednotky:
 \begin{itemize}
@@ -377,7 +377,7 @@ MPU6050 je měřicí jednotka složená ze tříosého gyroskopu a tříosého a
 	\label{fig:hc-05.png}
 \end{figure}
 
-\chapter[Průběh Konstrukce]{Průběh Konstrukce}
+\chapter[Průběh konstrukce]{Průběh konstrukce}
 Prvním krokem při konstrukci dronu bylo vytvoření jeho rámu pomocí 3D tisku. Po několika neúspěšných pokusech se podařilo úspěšně vytisknout jednotlivé součásti s~požadovanou přesností a strukturální pevností. Do klíčových částí rámu byly zataveny kovové závitové vložky, které umožňují pevné uchycení komponent pomocí šroubů. Ty byly umístěny především v~centrální části rámu, kde bylo nezbytné pevně připojit ramena ke středu rámu a na koncích ramen, kde dochází k~upevnění motorů s~vysokým tahem.
 
 Dalším krokem byla instalace a zapojení napájecího systému. Jednotlivé napájecí vodiče motorů byly připájeny k~rozvodové desce, která zajišťuje distribuci elektrické energie v~celém zařízení. Stejným způsobem byl k~rozvodové desce připojen hlavní napájecí kabel, přes který je k~desce připojena baterie. Po dokončení byly motory rozmístěny na koncích ramen dronu tak, aby jejich směr otáčení odpovídal požadované konfiguraci letového systému.
@@ -409,11 +409,11 @@ Komunikace s~HC-05 probíhá prostřednictvím sběrnice UART, která využívá
 \end{figure}
 
 
-Software pro Arduino byl vytvořen v~prostředí Arduino IDE, které je speciálně uzpůsobeno pro vývoj programů pro mikrořadič Arduino. Celý kód je nápsán v~programovacím jazyce C++.
+Software pro Arduino byl vytvořen v~prostředí Arduino IDE, které je speciálně uzpůsobeno pro vývoj programů pro mikrořadič Arduino. Celý kód je napsán v~programovacím jazyce C++.
 
 Mimo software pro řídicí jednotku bylo nutné vyvinout mobilní aplikaci, která umožňuje ovládání dronu prostřednictvím technologie Bluetooth. Pro tento účel byla využita aplikace \textit{Bluetooth Electronics} \cite{be}, která poskytuje širokou škálu přizpůsobitelných tlačítek a ovládacích panelů. Tato aplikace rovněž umožňuje nastavení jednotlivých příkazů odesílaných řídicí jednotce a zajišťuje propojení mezi mobilním zařízením a Bluetooth modulem dronu.
 
-Profesionální drony jsou vybaveny pokročilým softwarem pro stabilizaci a automatickou korekci polohy. Konstrukčně realizovaný dron v~této prací však funguje pouze na principu přímého ovládání motorů, přičemž neobsahuje stabilizační algoritmy. Výsledkem je vysoká nestabilita a značná náchylnost k~pádu během letu. Implementace stabilizačního systému by vyžadovala složité programování, které by významně rozšířilo rozsah této maturitní práce.
+Profesionální drony jsou vybaveny pokročilým softwarem pro stabilizaci a automatickou korekci polohy. Konstrukčně realizovaný dron v~této praci však funguje pouze na principu přímého ovládání motorů, přičemž neobsahuje stabilizační algoritmy. Výsledkem je vysoká nestabilita a značná náchylnost k~pádu během letu. Implementace stabilizačního systému by vyžadovala složité programování, které by významně rozšířilo rozsah této maturitní práce.
 
 Navržený dron je kompletně zhotoven po hardwarové stránce, přičemž zbývající vývoj pro stabilizovaný let se týká výhradně implementace softwarového stabilizačního systému v~Arduinu.
 
@@ -438,7 +438,7 @@ Ovládání kvadrokoptéry je realizováno několika prvky. Směrová tlačítka
 
 K~řízení směru letu slouží pravý joystick, jehož výchylka určuje náklon dronu. Ten odesílá příkazy s~předponou \textit{m:} následovanou souřadnicemi X a Y, které odpovídají aktuální poloze joysticku na obrazovce mobilního zařízení. Na základě míry vychýlení joysticku se kvadrokoptéra nakloní v~příslušném směru, čímž dochází ke změně trajektorie letu.
 
-Důležitou součástí ovládacího systému jsou také bezpečnostní prvky. Červené tlačítko v~horní části ovladače slouží jako nouzový vypínač a při jeho stisknutí dojde k~okamžitému zastavení všech motorů. Žluté tlačítko zatím nemá přiřazenou žádnou funkci.
+Důležitou součástí ovládacího systému jsou také bezpečnostní prvky. Červené tlačítko v~horní části ovladače slouží jako nouzový vypínač. Při jeho stisknutí dojde k~okamžitému zastavení všech motorů. Žluté tlačítko zatím nemá přiřazenou žádnou funkci.
 
 Pro vývoj a debugování provozu obsahuje program textový výstup, který umožňuje monitorování přijatých příkazů a jejich zpracování. Tyto informace lze zobrazit při připojení Arduina k~počítači přes USB kabel. Program rovněž implementuje bezpečnostní mechanismus, který zajistí, že v~případě ztráty spojení mezi mobilním zařízením a kvadrokoptérou dojde k~okamžitému zastavení motorů.
 
@@ -467,13 +467,13 @@ Propojení Arduina s~Bluetooth modulem, akcelerometrem, gyroskopem, baterií, re
 %%%%%%%%%%%%% ZÁVĚR
 \chapter*{Závěr}
 	
-Tato práce se zabývala problematikou dronů, klíčovými komponentami a jejich použití při konstrukci kvadrokoptéry. V~teoretická část se zaobírala různými existujícími typy dronů a jejich využití v~reálném světě. Další z~kapitol se věnovala fungování jednotlivých komponent. Celou teoretickou část uzavírá kapitola zabývající se fyzikálními principy letu dronu.
+Tato práce se zabývala problematikou dronů, klíčovými komponentami a jejich použití při konstrukci kvadrokoptéry. Teoretická část se zaobírala různými existujícími typy dronů a jejich využití v~reálném světě. Další z~kapitol se věnovala fungování jednotlivých komponent. Celou teoretickou část uzavírá kapitola zabývající se fyzikálními principy letu dronu.
 
-V~praktické části jsme navrhli a zkonstruovali kvadrokoptéru, jejíž konstrukce představovala stěžejní téma práce. Proces sestavení zahrnoval návrh řídicí jednotky a vývoj softwaru umožňujícího ovládání celého systému. Nedílnou součástí řídicího softwaru byla rovněž mobilní aplikace určená k~řízení kvadrokoptéry. Řídicí jednotka však neobsahovala implementaci algoritmů pro automatickou stabilizaci letu, přestože samotný hardware obsahuje veškeré nezbytné senzory a komponenty pro tento účel. Namísto toho byla navržena tak, aby přijímala přímé pokyny z~mobilního zařízení, a na jejich základě ovládala příslušné motory.
+V~praktické části jsme navrhli a zkonstruovali kvadrokoptéru, jejíž konstrukce představovala stěžejní téma práce. Proces sestavení zahrnoval návrh řídicí jednotky a vývoj softwaru umožňujícího ovládání celého systému. Nedílnou součástí řídicího softwaru byla rovněž mobilní aplikace určená k~řízení kvadrokoptéry. Řídicí jednotka však neobsahovala implementaci algoritmů pro automatickou stabilizaci letu, přestože samotný hardware obsahuje veškeré nezbytné senzory a komponenty pro tento účel. Místo toho byla navržena tak, aby přijímala přímé pokyny z~mobilního zařízení, a na jejich základě ovládala příslušné motory.
 
 Tento přístup se však neukázal jako optimální, neboť ve finální fázi testování bylo zjištěno, že dron není schopen dosáhnout dlouhodobého stabilního letu. Krátce po vzletu docházelo k~vychýlení na jednu stranu, což vedlo k~nutnosti okamžité deaktivace motorů. Tento experimentální výsledek jednoznačně demonstruje, že automatická stabilizace je pro bezproblémový let dronu nezbytná. Řešení této problematiky spočívá výhradně v~softwarové optimalizaci, neboť po hardwarové stránce nepostrádá kvadrokoptéra žádné komponenty.
 
-Kromě této optimalizace se nabízí možnost pevného připájení řídicí jednotky místo jejího osazení na nepájivé kontaktní pole. Tento krok by přinesl vyšší mechanickou odolnost sestavy, eliminoval riziko uvolnění spojů během provozu.
+Kromě této optimalizace se nabízí možnost pevného připájení řídicí jednotky místo jejího osazení na nepájivé kontaktní pole. Tento krok by přinesl vyšší mechanickou odolnost sestavy a eliminoval riziko uvolnění spojů během provozu.
 
 Dále by bylo možné rozšířit stávající hardware o~další moduly, například kamerový systém, senzory vzdálenosti od země, manipulační rameno či další přídavná zařízení dle požadavků konkrétní aplikace. Nabízí se velké množství úprav, které však už v~této maturitní práci realizovány nebyly.
 
